@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FeMa Studio – Webdesign für lokale Unternehmen</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --indigo: #6366f1;
+      --violet: #a855f7;
+      --cyan: #06b6d4;
+      --pink: #ec4899;
+      --bg: #05050f;
+      --surface: rgba(13,13,26,0.9);
+      --card: rgba(15,15,30,0.85);
+      --border: rgba(255,255,255,0.07);
+      --text: #f1f5f9;
+      --muted: #64748b;
+      --muted-light: #94a3b8;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Space Grotesk', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3 { font-family: 'Archivo', sans-serif; }
+
+    /* BEAMS CANVAS BACKGROUND */
+    #beams-canvas {
+      position: fixed; inset: 0; z-index: 0; pointer-events: none;
+      width: 100%; height: 100%;
+      filter: blur(12px);
+    }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 1rem; left: 1rem; right: 1rem; z-index: 100;
+      background: rgba(5,5,15,0.85);
+      backdrop-filter: blur(16px);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 0.875rem 1.75rem;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo {
+      font-family: 'Archivo', sans-serif;
+      font-size: 1rem; font-weight: 700;
+      background: linear-gradient(90deg, #6366f1, #a855f7);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .nav-links { display: flex; gap: 1.5rem; align-items: center; }
+    .nav-links a {
+      color: var(--muted-light); font-size: 0.8rem; text-decoration: none;
+      transition: color 0.2s; letter-spacing: 0.03em;
+    }
+    .nav-links a:hover { color: var(--text); }
+    .nav-cta {
+      background: linear-gradient(135deg, #6366f1, #a855f7);
+      color: white !important;
+      padding: 0.45rem 1.1rem;
+      border-radius: 6px;
+      font-weight: 600 !important;
+      font-size: 0.75rem !important;
+      letter-spacing: 0.05em;
+    }
+    .nav-cta:hover { opacity: 0.9; }
+
+    /* HERO */
+    .hero {
+      position: relative; z-index: 1;
+      min-height: 100vh;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      text-align: center;
+      padding: 8rem 1.5rem 5rem;
+      background: url('hero-1.jpg') center 30% / cover no-repeat;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0; z-index: 0;
+      background:
+        linear-gradient(to bottom, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.55) 45%, rgba(0,0,0,0.82) 100%),
+        radial-gradient(ellipse 80% 60% at 30% 40%, rgba(99,102,241,0.18) 0%, transparent 65%),
+        radial-gradient(ellipse 60% 50% at 70% 30%, rgba(168,85,247,0.12) 0%, transparent 65%);
+    }
+    .hero > * { position: relative; z-index: 1; }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      border: 1px solid rgba(99,102,241,0.3);
+      background: rgba(99,102,241,0.08);
+      color: #a5b4fc;
+      font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase;
+      padding: 0.4rem 1rem; border-radius: 100px;
+      margin-bottom: 2rem;
+    }
+    .hero-badge span { width: 6px; height: 6px; background: #6366f1; border-radius: 50%; animation: pulse 2s infinite; }
+    @keyframes pulse { 0%,100%{opacity:1;} 50%{opacity:0.3;} }
+
+    .hero h1 {
+      font-size: clamp(2.8rem, 8vw, 6rem);
+      font-weight: 900;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      margin-bottom: 1.5rem;
+      max-width: 900px;
+    }
+    .hero h1 .line1 { color: var(--text); display: block; }
+    .hero h1 .line2 {
+      display: block;
+      background: linear-gradient(90deg, #6366f1 0%, #a855f7 40%, #06b6d4 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-sub {
+      color: var(--muted-light); font-size: 1.05rem; max-width: 520px;
+      margin: 0 auto 2.5rem; line-height: 1.7; font-weight: 400;
+    }
+    .btn-group { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; }
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: linear-gradient(135deg, #6366f1, #a855f7);
+      color: white; font-size: 0.8rem; font-weight: 600;
+      letter-spacing: 0.05em; padding: 0.85rem 2rem;
+      border-radius: 8px; text-decoration: none;
+      transition: opacity 0.2s, transform 0.2s; cursor: pointer;
+      box-shadow: 0 4px 24px rgba(99,102,241,0.3);
+    }
+    .btn-primary:hover { opacity: 0.9; transform: translateY(-1px); }
+    .btn-secondary {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.03);
+      color: var(--muted-light); font-size: 0.8rem; font-weight: 500;
+      letter-spacing: 0.05em; padding: 0.85rem 2rem;
+      border-radius: 8px; text-decoration: none;
+      transition: border-color 0.2s, color 0.2s, background 0.2s;
+    }
+    .btn-secondary:hover { border-color: rgba(99,102,241,0.4); color: var(--text); background: rgba(99,102,241,0.05); }
+
+    /* WHATSAPP FLOAT */
+    .wa-float {
+      position: fixed; bottom: 1.75rem; right: 1.75rem; z-index: 200;
+      width: 56px; height: 56px;
+      background: #25D366; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 20px rgba(37,211,102,0.4);
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s; cursor: pointer;
+    }
+    .wa-float:hover { transform: scale(1.08); box-shadow: 0 6px 28px rgba(37,211,102,0.55); }
+    .wa-float::before {
+      content: ''; position: absolute; inset: -4px; border-radius: 50%;
+      border: 2px solid rgba(37,211,102,0.4);
+      animation: wa-pulse 2s ease-out infinite;
+    }
+    @keyframes wa-pulse { 0% { transform: scale(1); opacity: 1; } 100% { transform: scale(1.5); opacity: 0; } }
+    .wa-tooltip {
+      position: absolute; right: calc(100% + 12px); top: 50%; transform: translateY(-50%);
+      background: rgba(15,15,30,0.95); border: 1px solid rgba(255,255,255,0.08);
+      color: #f1f5f9; font-size: 0.72rem; font-weight: 500;
+      white-space: nowrap; padding: 0.4rem 0.75rem; border-radius: 6px;
+      opacity: 0; pointer-events: none; transition: opacity 0.2s;
+    }
+    .wa-float:hover .wa-tooltip { opacity: 1; }
+
+    /* HERO STATS */
+    .hero-stats {
+      display: flex; gap: 3rem; margin-top: 4rem;
+      flex-wrap: wrap; justify-content: center;
+    }
+    .stat { text-align: center; }
+    .stat-num {
+      font-family: 'Archivo', sans-serif;
+      font-size: 1.8rem; font-weight: 800;
+      background: linear-gradient(90deg, #6366f1, #a855f7);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .stat-label { font-size: 0.75rem; color: var(--muted); letter-spacing: 0.08em; text-transform: uppercase; margin-top: 0.25rem; }
+
+    /* SECTIONS */
+    section { position: relative; z-index: 1; padding: 6rem 1.5rem; }
+    .container { max-width: 1000px; margin: 0 auto; }
+    .section-header { text-align: center; margin-bottom: 4rem; }
+    .label-tag {
+      display: inline-block;
+      font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase;
+      color: #a5b4fc; margin-bottom: 1rem;
+      font-weight: 600;
+    }
+    .section-header h2 {
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 800; color: var(--text);
+      letter-spacing: -0.02em; line-height: 1.1;
+    }
+    .section-header p { color: var(--muted-light); font-size: 0.95rem; margin-top: 0.75rem; max-width: 480px; margin-left: auto; margin-right: auto; }
+
+    /* PROBLEM */
+    .problem-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; }
+    .problem-card {
+      border-radius: 12px; padding: 1.75rem;
+      position: relative; overflow: hidden;
+      border: 1px solid var(--border);
+      background: var(--card);
+      transition: border-color 0.3s;
+    }
+    .problem-card:hover { border-color: rgba(99,102,241,0.2); }
+    .problem-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+    }
+    .problem-card.bad::before { background: linear-gradient(90deg, #ef4444, #f97316); }
+    .problem-card.good::before { background: linear-gradient(90deg, #6366f1, #a855f7); }
+    .badge {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      font-size: 0.6rem; letter-spacing: 0.12em; text-transform: uppercase;
+      padding: 0.25rem 0.75rem; border-radius: 100px; margin-bottom: 1rem;
+      font-weight: 700;
+    }
+    .badge-bad { background: rgba(239,68,68,0.1); color: #f87171; border: 1px solid rgba(239,68,68,0.2); }
+    .badge-good { background: rgba(99,102,241,0.1); color: #a5b4fc; border: 1px solid rgba(99,102,241,0.2); }
+    .problem-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 0.6rem; color: var(--text); }
+    .problem-card p { font-size: 0.85rem; color: var(--muted-light); line-height: 1.7; }
+
+    /* FEATURES — BENTO GRID */
+    .bento { display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: auto; gap: 1rem; }
+    @media (max-width: 768px) { .bento { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 480px) { .bento { grid-template-columns: 1fr; } }
+
+    .bento-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.75rem;
+      position: relative; overflow: hidden;
+      transition: border-color 0.3s, transform 0.3s;
+      cursor: default;
+    }
+    .bento-card:hover { border-color: rgba(99,102,241,0.3); transform: translateY(-2px); }
+    .bento-card .icon-wrap {
+      width: 40px; height: 40px; border-radius: 8px;
+      background: linear-gradient(135deg, rgba(99,102,241,0.15), rgba(168,85,247,0.15));
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 1rem; color: #a5b4fc;
+    }
+    .bento-card h3 { font-size: 0.9rem; font-weight: 700; color: var(--text); margin-bottom: 0.5rem; }
+    .bento-card p { font-size: 0.8rem; color: var(--muted-light); line-height: 1.65; }
+    .bento-card .glow {
+      position: absolute; inset: -1px; border-radius: 12px;
+      background: linear-gradient(135deg, rgba(99,102,241,0.15), rgba(168,85,247,0.1));
+      opacity: 0; transition: opacity 0.3s; z-index: -1;
+    }
+    .bento-card:hover .glow { opacity: 1; }
+
+    /* STEPS */
+    .steps-wrap { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 3rem; }
+    .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 2rem; }
+    .step { position: relative; }
+    .step:not(:last-child)::after {
+      content: '';
+      position: absolute; top: 24px; left: calc(100% + 0.5rem); right: -1.5rem;
+      height: 1px;
+      background: linear-gradient(90deg, rgba(99,102,241,0.4), transparent);
+    }
+    @media (max-width: 640px) { .step:not(:last-child)::after { display: none; } }
+    .step-num {
+      width: 48px; height: 48px; border-radius: 10px;
+      background: linear-gradient(135deg, #6366f1, #a855f7);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Archivo', sans-serif; font-size: 1.1rem; font-weight: 800;
+      color: white; margin-bottom: 1.25rem;
+      box-shadow: 0 4px 16px rgba(99,102,241,0.3);
+    }
+    .step h3 { font-size: 0.95rem; font-weight: 700; color: var(--text); margin-bottom: 0.5rem; }
+    .step p { font-size: 0.8rem; color: var(--muted-light); line-height: 1.65; }
+
+    /* REFERENZ */
+    .referenz-card {
+      border-radius: 16px; overflow: hidden;
+      border: 1px solid var(--border);
+      display: grid; grid-template-columns: 3fr 2fr;
+      background: var(--card);
+    }
+    @media (max-width: 640px) { .referenz-card { grid-template-columns: 1fr; } }
+    .referenz-visual {
+      background: linear-gradient(135deg, #08081a, #0d0d20);
+      min-height: 320px;
+      display: flex; align-items: center; justify-content: center;
+      padding: 1.5rem; position: relative; overflow: hidden;
+    }
+    .referenz-visual::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 80% 60% at 50% 50%, rgba(99,102,241,0.12), transparent);
+    }
+    .browser-mockup {
+      width: 100%; position: relative; z-index: 1;
+      background: #0a0a18; border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 8px; overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+    }
+    .browser-bar {
+      background: #111125; padding: 0.6rem 0.75rem;
+      display: flex; align-items: center; gap: 0.5rem;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    .browser-dot { width: 7px; height: 7px; border-radius: 50%; }
+    .browser-dot:nth-child(1) { background: #ff5f57; }
+    .browser-dot:nth-child(2) { background: #ffbd2e; }
+    .browser-dot:nth-child(3) { background: #28ca41; }
+    .browser-url {
+      flex: 1; background: rgba(255,255,255,0.05); border-radius: 4px;
+      padding: 0.2rem 0.6rem; font-size: 0.6rem; color: var(--muted);
+      margin-left: 0.5rem; font-family: monospace;
+    }
+    .browser-body { padding: 0; overflow: hidden; }
+    .browser-preview-img { width: 100%; height: auto; display: block; }
+
+    .referenz-info { padding: 2.5rem; display: flex; flex-direction: column; justify-content: center; gap: 1.25rem; }
+    .referenz-info h3 { font-size: 1.6rem; font-weight: 800; letter-spacing: -0.02em; }
+    .referenz-info p { font-size: 0.85rem; color: var(--muted-light); line-height: 1.7; }
+    .tag-list { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .tag {
+      font-size: 0.65rem; letter-spacing: 0.08em; text-transform: uppercase;
+      border: 1px solid var(--border); color: var(--muted-light);
+      padding: 0.2rem 0.7rem; border-radius: 100px;
+    }
+    .referenz-link {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      color: #a5b4fc; font-size: 0.8rem; text-decoration: none; font-weight: 500;
+      transition: gap 0.2s, color 0.2s;
+    }
+    .referenz-link:hover { gap: 0.8rem; color: white; }
+
+    /* KONTAKT */
+    .kontakt-wrap { display: flex; justify-content: center; }
+    .kontakt-card {
+      background: var(--card);
+      border: 1px solid rgba(99,102,241,0.2);
+      border-radius: 20px;
+      padding: 3rem;
+      text-align: center;
+      max-width: 480px; width: 100%;
+      position: relative; overflow: hidden;
+      box-shadow: 0 0 60px rgba(99,102,241,0.08);
+    }
+    .kontakt-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, #6366f1, #a855f7, #06b6d4);
+    }
+    .kontakt-avatar {
+      width: 64px; height: 64px; border-radius: 50%;
+      background: linear-gradient(135deg, #6366f1, #a855f7);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Archivo', sans-serif; font-size: 1.4rem; font-weight: 800;
+      color: white; margin: 0 auto 1.25rem;
+    }
+    .kontakt-name { font-family: 'Archivo', sans-serif; font-size: 1.5rem; font-weight: 800; margin-bottom: 0.25rem; }
+    .kontakt-role { color: var(--muted); font-size: 0.8rem; margin-bottom: 2rem; letter-spacing: 0.05em; }
+    .kontakt-links { display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 2rem; }
+    .kontakt-row {
+      display: flex; align-items: center; gap: 0.75rem;
+      background: rgba(255,255,255,0.03); border: 1px solid var(--border);
+      border-radius: 8px; padding: 0.75rem 1rem;
+      color: var(--muted-light); font-size: 0.85rem;
+      transition: border-color 0.2s;
+    }
+    .kontakt-row:hover { border-color: rgba(99,102,241,0.3); }
+    .kontakt-row a { color: var(--text); text-decoration: none; margin-left: auto; font-weight: 500; }
+    .kontakt-row svg { color: #a5b4fc; flex-shrink: 0; }
+
+    /* FOOTER */
+    footer {
+      position: relative; z-index: 1;
+      border-top: 1px solid var(--border);
+      padding: 2rem 1.5rem;
+      text-align: center;
+      color: var(--muted); font-size: 0.75rem;
+    }
+    footer span {
+      background: linear-gradient(90deg, #6366f1, #a855f7);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+      font-weight: 600;
+    }
+
+    /* DIVIDER */
+    .divider { height: 1px; background: var(--border); margin: 0; }
+
+    /* SCROLL ANIMATION */
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    @media (max-width: 640px) {
+      nav { top: 0.5rem; left: 0.5rem; right: 0.5rem; }
+      .nav-links a:not(.nav-cta) { display: none; }
+      .steps-wrap { padding: 1.75rem; }
+      .kontakt-card { padding: 2rem 1.5rem; }
+      .referenz-info { padding: 1.75rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <canvas id="beams-canvas"></canvas>
+
+  <!-- NAV -->
+  <nav>
+    <span class="nav-logo">FeMa<span style="-webkit-text-fill-color:#e2e8f0;background:none;font-weight:400;"> Studio</span></span>
+    <div class="nav-links">
+      <a href="#leistungen">Leistungen</a>
+      <a href="#ablauf">Ablauf</a>
+      <a href="#referenz">Referenz</a>
+      <a href="tel:+4915906463241" class="nav-cta">Anrufen</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-badge">
+      <span></span>
+      Webdesign · Neuruppin & Umgebung
+    </div>
+    <h1>
+      <span class="line1">Ihre Website.</span>
+      <span class="line2">Professionell gebaut.</span>
+    </h1>
+    <p class="hero-sub">Ich entwerfe und baue moderne Websites für lokale Unternehmen — damit Ihre Kunden Sie online finden und einen starken ersten Eindruck bekommen.</p>
+    <div class="btn-group">
+      <a href="tel:+4915906463241" class="btn-primary">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.19h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.77a16 16 0 0 0 6.29 6.29l1.64-1.64a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        Kostenloses Gespräch
+      </a>
+      <a href="#ablauf" class="btn-secondary">Wie läuft das ab?</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat">
+        <div class="stat-num">100%</div>
+        <div class="stat-label">Maßgeschneidert</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">~2 Wo.</div>
+        <div class="stat-label">Bis zur fertigen Website</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">Lokal</div>
+        <div class="stat-label">Neuruppin & Umkreis</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- PROBLEM -->
+  <section>
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="label-tag">Das Problem</p>
+        <h2>Kunden suchen online — finden sie Sie?</h2>
+        <p>Wer heute nach einem Handwerker, Friseur oder Dienstleister sucht, greift zum Smartphone.</p>
+      </div>
+      <div class="problem-grid">
+        <div class="problem-card bad reveal">
+          <span class="badge badge-bad">Ohne Website</span>
+          <h3>Unsichtbar im Internet</h3>
+          <p>Ohne eigene Website existieren Sie für Google-Nutzer schlicht nicht. Der Auftrag geht an die Konkurrenz.</p>
+        </div>
+        <div class="problem-card bad reveal">
+          <span class="badge badge-bad">Veraltete Website</span>
+          <h3>Schlechter erster Eindruck</h3>
+          <p>Eine alte, unübersichtliche Website wirkt unprofessionell. Besucher springen binnen Sekunden ab.</p>
+        </div>
+        <div class="problem-card good reveal">
+          <span class="badge badge-good">Moderne Website</span>
+          <h3>Neue Kunden gewinnen</h3>
+          <p>Eine klare, schnelle Website vermittelt Vertrauen, zeigt Ihre Stärken und macht die Kontaktaufnahme leicht.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- LEISTUNGEN -->
+  <section id="leistungen">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="label-tag">Ihre Informationswebsite</p>
+        <h2>Was Sie bekommen</h2>
+        <p>Alles was ein lokales Unternehmen braucht — klar, schnell, professionell.</p>
+      </div>
+      <div class="bento">
+        <div class="bento-card reveal">
+          <div class="icon-wrap">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg>
+          </div>
+          <h3>Moderne Startseite</h3>
+          <p>Ihr Unternehmen professionell in Szene gesetzt — mit Ihren Fotos und Texten.</p>
+          <div class="glow"></div>
+        </div>
+        <div class="bento-card reveal">
+          <div class="icon-wrap">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+          </div>
+          <h3>Ihre Leistungen</h3>
+          <p>Übersichtlich dargestellt — was Sie anbieten und was Kunden erwartet.</p>
+          <div class="glow"></div>
+        </div>
+        <div class="bento-card reveal">
+          <div class="icon-wrap">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <h3>Standort & Öffnungszeiten</h3>
+          <p>Google Maps integriert, Öffnungszeiten auf einen Blick.</p>
+          <div class="glow"></div>
+        </div>
+        <div class="bento-card reveal">
+          <div class="icon-wrap">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.19h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.77a16 16 0 0 0 6.29 6.29l1.64-1.64a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          </div>
+          <h3>Direkter Kontaktbereich</h3>
+          <p>Telefon und E-Mail direkt anklickbar — auch auf dem Smartphone.</p>
+          <div class="glow"></div>
+        </div>
+        <div class="bento-card reveal">
+          <div class="icon-wrap">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+          </div>
+          <h3>Mobil optimiert</h3>
+          <p>Perfekte Darstellung auf allen Geräten — Handy, Tablet, Desktop.</p>
+          <div class="glow"></div>
+        </div>
+        <div class="bento-card reveal">
+          <div class="icon-wrap">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          </div>
+          <h3>Online & auffindbar</h3>
+          <p>Live im Internet mit Ihrem eigenen Domain-Namen — sofort erreichbar.</p>
+          <div class="glow"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ABLAUF -->
+  <section id="ablauf">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="label-tag">So einfach geht's</p>
+        <h2>Der Ablauf in 4 Schritten</h2>
+        <p>Von unserem ersten Gespräch bis Ihre Website live ist.</p>
+      </div>
+      <div class="steps-wrap reveal">
+        <div class="steps">
+          <div class="step">
+            <div class="step-num">1</div>
+            <h3>Erstes Gespräch</h3>
+            <p>Wir treffen uns kurz — kein Druck, keine Kosten. Ich höre zu, was Ihr Unternehmen braucht.</p>
+          </div>
+          <div class="step">
+            <div class="step-num">2</div>
+            <h3>Fotos & Infos</h3>
+            <p>Ich komme vorbei, mache Fotos von Ihrem Betrieb und sammle alle Inhalte für die Website.</p>
+          </div>
+          <div class="step">
+            <div class="step-num">3</div>
+            <h3>Entwurf & Feedback</h3>
+            <p>Sie sehen die Website vor dem Launch und können Wünsche oder Änderungen mitteilen.</p>
+          </div>
+          <div class="step">
+            <div class="step-num">4</div>
+            <h3>Live schalten</h3>
+            <p>Ihre Website geht online — fertig. Ab sofort werden Sie im Internet gefunden.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- REFERENZ -->
+  <section id="referenz">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="label-tag">Referenz</p>
+        <h2>Ein Beispiel aus der Region</h2>
+      </div>
+      <div class="referenz-card reveal">
+        <div class="referenz-visual">
+          <div class="browser-mockup">
+            <div class="browser-bar">
+              <div class="browser-dot"></div>
+              <div class="browser-dot"></div>
+              <div class="browser-dot"></div>
+              <div class="browser-url">mirash-barbershop.vercel.app</div>
+            </div>
+            <div class="browser-body">
+              <img src="mirash-preview.png" class="browser-preview-img" alt="Mirash Barbershop Website" />
+            </div>
+          </div>
+        </div>
+        <div class="referenz-info">
+          <p class="label-tag">Neuruppin · Oranienburg</p>
+          <h3>Mirash Barbershop</h3>
+          <p>Premium-Barbershop mit zwei Standorten. Komplette Informationswebsite mit Galerie, Leistungen, Öffnungszeiten, Google Maps und direktem Anruf-Button.</p>
+          <div class="tag-list">
+            <span class="tag">Informationswebsite</span>
+            <span class="tag">Galerie</span>
+            <span class="tag">Google Maps</span>
+            <span class="tag">Mobil optimiert</span>
+          </div>
+          <a href="https://mirash-barbershop.vercel.app/" target="_blank" rel="noopener noreferrer" class="referenz-link">
+            Live-Website ansehen
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- KONTAKT -->
+  <section>
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="label-tag">Sprechen wir</p>
+        <h2>Interesse? Einfach melden.</h2>
+        <p>Kostenlos und unverbindlich — ich freue mich auf Ihre Nachricht.</p>
+      </div>
+      <div class="kontakt-wrap">
+        <div class="kontakt-card reveal">
+          <div class="kontakt-avatar">FM</div>
+          <div class="kontakt-name">Felix Mauk</div>
+          <div class="kontakt-role">FeMa Studio · Webdesigner · Neuruppin & Umgebung</div>
+          <div class="kontakt-links">
+            <div class="kontakt-row">
+              <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.19h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.77a16 16 0 0 0 6.29 6.29l1.64-1.64a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              <span>Telefon</span>
+              <a href="tel:+4915906463241">0159 0646 3241</a>
+            </div>
+            <div class="kontakt-row">
+              <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              <span>E-Mail</span>
+              <a href="mailto:fmgeschaeftlich96@gmail.com">Schreiben</a>
+            </div>
+            <div class="kontakt-row">
+              <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.115.549 4.099 1.508 5.832L.057 23.868c-.054.209.005.43.158.578A.75.75 0 0 0 .75 24c.064 0 .129-.008.192-.025l6.186-1.618A11.943 11.943 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.72 9.72 0 0 1-5.058-1.415l-.363-.217-3.762.985.998-3.655-.236-.374A9.699 9.699 0 0 1 2.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z"/></svg>
+              <span>WhatsApp</span>
+              <a href="https://wa.me/4915906463241" target="_blank" rel="noopener noreferrer">Nachricht schreiben</a>
+            </div>
+          </div>
+          <a href="tel:+4915906463241" class="btn-primary" style="width:100%;justify-content:center;border-radius:8px;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.19h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.77a16 16 0 0 0 6.29 6.29l1.64-1.64a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            Jetzt kostenlos anrufen
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 <span>FeMa Studio</span> · Webdesign Neuruppin</p>
+  </footer>
+
+  <a href="https://wa.me/4915906463241" target="_blank" rel="noopener noreferrer"
+     class="wa-float" aria-label="Auf WhatsApp schreiben">
+    <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="white">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+      <path d="M12 0C5.373 0 0 5.373 0 12c0 2.115.549 4.099 1.508 5.832L.057 23.868c-.054.209.005.43.158.578A.75.75 0 0 0 .75 24c.064 0 .129-.008.192-.025l6.186-1.618A11.943 11.943 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.72 9.72 0 0 1-5.058-1.415l-.363-.217-3.762.985.998-3.655-.236-.374A9.699 9.699 0 0 1 2.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z"/>
+    </svg>
+    <span class="wa-tooltip">Auf WhatsApp schreiben</span>
+  </a>
+
+  <script>
+    (function() {
+      const canvas = document.getElementById('beams-canvas');
+      const ctx = canvas.getContext('2d');
+      const BEAM_COUNT = 22;
+      let beams = [], W, H;
+
+      function createBeam(i) {
+        const col = i % 3, sp = W / 3;
+        return {
+          x: col * sp + sp / 2 + (Math.random() - 0.5) * sp * 0.6,
+          y: Math.random() * H * 1.5 - H * 0.25,
+          width: 70 + Math.random() * 90,
+          length: H * 2.5,
+          angle: -35 + Math.random() * 10,
+          speed: 0.35 + Math.random() * 0.5,
+          opacity: 0.07 + Math.random() * 0.1,
+          hue: 190 + (i * 90) / BEAM_COUNT,
+          pulse: Math.random() * Math.PI * 2,
+          pulseSpeed: 0.015 + Math.random() * 0.02,
+        };
+      }
+
+      function resetBeam(b, i) {
+        const col = i % 3, sp = W / 3;
+        b.y = H + 100;
+        b.x = col * sp + sp / 2 + (Math.random() - 0.5) * sp * 0.5;
+        b.width = 80 + Math.random() * 100;
+        b.speed = 0.35 + Math.random() * 0.45;
+        b.hue = 190 + (i * 90) / BEAM_COUNT;
+        b.opacity = 0.07 + Math.random() * 0.08;
+      }
+
+      function resize() {
+        const dpr = window.devicePixelRatio || 1;
+        W = window.innerWidth; H = window.innerHeight;
+        canvas.width = W * dpr; canvas.height = H * dpr;
+        canvas.style.width = W + 'px'; canvas.style.height = H + 'px';
+        ctx.scale(dpr, dpr);
+        beams = Array.from({ length: BEAM_COUNT }, (_, i) => createBeam(i));
+      }
+
+      function drawBeam(b) {
+        ctx.save();
+        ctx.translate(b.x, b.y);
+        ctx.rotate(b.angle * Math.PI / 180);
+        const po = b.opacity * (0.8 + Math.sin(b.pulse) * 0.2);
+        const g = ctx.createLinearGradient(0, 0, 0, b.length);
+        g.addColorStop(0,   `hsla(${b.hue},82%,65%,0)`);
+        g.addColorStop(0.1, `hsla(${b.hue},82%,65%,${po * 0.5})`);
+        g.addColorStop(0.4, `hsla(${b.hue},82%,65%,${po})`);
+        g.addColorStop(0.6, `hsla(${b.hue},82%,65%,${po})`);
+        g.addColorStop(0.9, `hsla(${b.hue},82%,65%,${po * 0.5})`);
+        g.addColorStop(1,   `hsla(${b.hue},82%,65%,0)`);
+        ctx.fillStyle = g;
+        ctx.fillRect(-b.width / 2, 0, b.width, b.length);
+        ctx.restore();
+      }
+
+      function animate() {
+        ctx.clearRect(0, 0, W, H);
+        ctx.filter = 'blur(32px)';
+        beams.forEach((b, i) => {
+          b.y -= b.speed;
+          b.pulse += b.pulseSpeed;
+          if (b.y + b.length < -100) resetBeam(b, i);
+          drawBeam(b);
+        });
+        requestAnimationFrame(animate);
+      }
+
+      resize();
+      window.addEventListener('resize', resize);
+      animate();
+    })();
+  </script>
+
+  <script>
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => entry.target.classList.add('visible'), i * 80);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    reveals.forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>
