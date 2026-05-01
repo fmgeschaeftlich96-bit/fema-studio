@@ -3,7 +3,90 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>FeMa Studio – Webdesign für lokale Unternehmen</title>
+  <title>FeMa Studio – Webdesign für lokale Unternehmen | Neuruppin & Umgebung</title>
+  <meta name="description" content="FeMa Studio – Felix Mauk baut moderne Websites für lokale Unternehmen in Neuruppin, Oranienburg und Umgebung. Schnell, unkompliziert, auf den Punkt." />
+  <meta name="author" content="Felix Mauk" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://fema-studio.de" />
+
+  <!-- Open Graph (WhatsApp, Instagram, Facebook Vorschau) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://fema-studio.de" />
+  <meta property="og:title" content="FeMa Studio – Webdesign für lokale Unternehmen" />
+  <meta property="og:description" content="Websites für Betriebe in der Region. Direkt, unkompliziert, ohne Agentur-Aufwand. Neuruppin & Umgebung." />
+  <meta property="og:image" content="https://fema-studio.de/hero-1.jpg" />
+  <meta property="og:locale" content="de_DE" />
+  <meta property="og:site_name" content="FeMa Studio" />
+
+  <!-- Structured Data: LocalBusiness + Person -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "LocalBusiness",
+        "@id": "https://fema-studio.de/#business",
+        "name": "FeMa Studio",
+        "url": "https://fema-studio.de",
+        "description": "Webdesign für lokale Unternehmen in Neuruppin, Oranienburg und der Region Brandenburg. Moderne, schnelle Websites ohne Agentur-Aufwand.",
+        "telephone": "+4915906463241",
+        "email": "hello@fema-studio.de",
+        "priceRange": "€€",
+        "image": "https://fema-studio.de/hero-1.jpg",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Neuruppin",
+          "addressRegion": "Brandenburg",
+          "addressCountry": "DE"
+        },
+        "areaServed": [
+          { "@type": "City", "name": "Neuruppin" },
+          { "@type": "City", "name": "Oranienburg" },
+          { "@type": "AdministrativeArea", "name": "Brandenburg" }
+        ],
+        "serviceType": "Webdesign",
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Webdesign-Leistungen",
+          "itemListElement": [
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Website erstellen" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Website überarbeiten" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Lokales SEO" } }
+          ]
+        },
+        "founder": { "@id": "https://fema-studio.de/#person" },
+        "sameAs": [
+          "https://github.com/fmgeschaeftlich96-bit"
+        ]
+      },
+      {
+        "@type": "Person",
+        "@id": "https://fema-studio.de/#person",
+        "name": "Felix Mauk",
+        "jobTitle": "Webdesigner",
+        "worksFor": { "@id": "https://fema-studio.de/#business" },
+        "url": "https://fema-studio.de",
+        "email": "hello@fema-studio.de",
+        "telephone": "+4915906463241",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Neuruppin",
+          "addressRegion": "Brandenburg",
+          "addressCountry": "DE"
+        }
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://fema-studio.de/#website",
+        "url": "https://fema-studio.de",
+        "name": "FeMa Studio",
+        "publisher": { "@id": "https://fema-studio.de/#business" },
+        "inLanguage": "de-DE"
+      }
+    ]
+  }
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <style>
