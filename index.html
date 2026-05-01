@@ -505,7 +505,6 @@
       cursor: pointer;
       padding: 6px;
       z-index: 110;
-      position: relative;
     }
     .nav-burger span {
       display: block;
@@ -513,29 +512,23 @@
       height: 2px;
       background: var(--text);
       border-radius: 2px;
-      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.2s;
+      transition: transform 0.3s cubic-bezier(0.4,0,0.2,1), opacity 0.2s;
       transform-origin: center;
     }
-    .nav-burger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-    .nav-burger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
-    .nav-burger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
     /* MOBILE MENU — full-screen overlay */
     .nav-mobile {
+      display: none;
       position: fixed;
-      inset: 0;
-      z-index: 98;
+      top: 0; left: 0; right: 0; bottom: 0;
+      width: 100%; height: 100%;
+      z-index: 300;
       background: #05050f;
-      display: flex;
       flex-direction: column;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
       overflow: hidden;
     }
-    .nav-mobile.open { opacity: 1; pointer-events: all; }
 
-    /* Glow orbs inside menu */
+    /* Glow orbs */
     .nav-mob-orb {
       position: absolute;
       border-radius: 50%;
@@ -543,24 +536,60 @@
       filter: blur(80px);
     }
     .nav-mob-orb-1 {
-      width: 420px; height: 420px;
-      top: -80px; right: -60px;
-      background: radial-gradient(circle, rgba(99,102,241,0.18), transparent 70%);
+      width: 380px; height: 380px;
+      top: -60px; right: -40px;
+      background: radial-gradient(circle, rgba(99,102,241,0.22), transparent 70%);
     }
     .nav-mob-orb-2 {
-      width: 320px; height: 320px;
-      bottom: 40px; left: -40px;
-      background: radial-gradient(circle, rgba(168,85,247,0.14), transparent 70%);
+      width: 300px; height: 300px;
+      bottom: 30px; left: -30px;
+      background: radial-gradient(circle, rgba(168,85,247,0.16), transparent 70%);
     }
 
-    /* Inner layout */
-    .nav-mob-inner {
+    /* Header row inside overlay */
+    .nav-mob-header {
       position: relative;
       z-index: 1;
       display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 1.25rem;
+      border-bottom: 1px solid rgba(99,102,241,0.08);
+      flex-shrink: 0;
+    }
+    .nav-mob-logo {
+      font-family: 'Archivo', sans-serif;
+      font-size: 1rem;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      background: linear-gradient(90deg, #6366f1, #a855f7);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .nav-mob-logo span { font-weight: 400; -webkit-text-fill-color: rgba(241,245,249,0.6); }
+    .nav-mob-close {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px; height: 36px;
+      background: rgba(99,102,241,0.1);
+      border: 1px solid rgba(99,102,241,0.2);
+      border-radius: 50%;
+      cursor: pointer;
+      color: var(--muted-light);
+      transition: background 0.2s, color 0.2s;
+    }
+    .nav-mob-close:hover { background: rgba(99,102,241,0.2); color: var(--text); }
+
+    /* Content area */
+    .nav-mob-body {
+      position: relative;
+      z-index: 1;
+      flex: 1;
+      display: flex;
       flex-direction: column;
-      height: 100%;
-      padding: 6.5rem 1.75rem 2rem;
+      padding: 1.5rem 1.75rem 2rem;
       overflow-y: auto;
     }
 
@@ -568,111 +597,102 @@
     .nav-mob-label {
       font-size: 0.6rem;
       font-weight: 600;
-      letter-spacing: 0.3em;
+      letter-spacing: 0.28em;
       text-transform: uppercase;
-      color: rgba(99,102,241,0.6);
-      margin-bottom: 1.25rem;
+      color: rgba(99,102,241,0.55);
+      margin-bottom: 1rem;
       opacity: 0;
-      transform: translateY(8px);
-      transition: opacity 0.4s 0.05s, transform 0.4s 0.05s;
+      transform: translateY(6px);
+      transition: opacity 0.35s 0.05s, transform 0.35s 0.05s;
     }
     .nav-mobile.open .nav-mob-label { opacity: 1; transform: none; }
 
-    /* Links list */
+    /* Links */
     .nav-mob-links {
       flex: 1;
       display: flex;
       flex-direction: column;
       justify-content: center;
     }
-
-    /* Individual link */
     .nav-link {
       display: flex;
       align-items: baseline;
       justify-content: space-between;
       text-decoration: none;
-      padding: 0.5rem 0;
+      padding: 0.55rem 0;
       border-bottom: 1px solid rgba(99,102,241,0.1);
       opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.45s, transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+      transform: translateY(18px);
+      transition: opacity 0.4s, transform 0.4s cubic-bezier(0.4,0,0.2,1);
     }
-    .nav-mobile.open .nav-link:nth-child(1) { opacity: 1; transform: none; transition-delay: 0.08s; }
-    .nav-mobile.open .nav-link:nth-child(2) { opacity: 1; transform: none; transition-delay: 0.14s; }
-    .nav-mobile.open .nav-link:nth-child(3) { opacity: 1; transform: none; transition-delay: 0.2s; }
-    .nav-mobile.open .nav-link:nth-child(4) { opacity: 1; transform: none; transition-delay: 0.26s; }
+    .nav-mobile.open .nav-link:nth-child(1) { opacity:1; transform:none; transition-delay:0.08s; }
+    .nav-mobile.open .nav-link:nth-child(2) { opacity:1; transform:none; transition-delay:0.13s; }
+    .nav-mobile.open .nav-link:nth-child(3) { opacity:1; transform:none; transition-delay:0.18s; }
+    .nav-mobile.open .nav-link:nth-child(4) { opacity:1; transform:none; transition-delay:0.23s; }
 
     .nav-link-text {
       font-family: 'Archivo', sans-serif;
-      font-size: clamp(2rem, 9vw, 3rem);
+      font-size: 1.85rem;
       font-weight: 900;
       letter-spacing: -0.03em;
       line-height: 1.1;
-      color: rgba(241,245,249,0.88);
-      transition: color 0.2s;
-      -webkit-text-fill-color: rgba(241,245,249,0.88);
+      color: rgba(241,245,249,0.9);
+      -webkit-text-fill-color: rgba(241,245,249,0.9);
+      transition: opacity 0.2s;
     }
+    .nav-link:active .nav-link-text,
     .nav-link:hover .nav-link-text {
       background: linear-gradient(90deg, #6366f1, #a855f7 55%, #06b6d4);
       -webkit-background-clip: text;
       background-clip: text;
       -webkit-text-fill-color: transparent;
     }
-
     .nav-link-num {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 0.65rem;
+      font-size: 0.6rem;
       font-weight: 500;
       letter-spacing: 0.12em;
-      color: rgba(99,102,241,0.35);
-      transition: color 0.2s;
+      color: rgba(99,102,241,0.3);
       flex-shrink: 0;
       padding-left: 0.5rem;
+      transition: color 0.2s;
     }
-    .nav-link:hover .nav-link-num { color: rgba(99,102,241,0.7); }
+    .nav-link:hover .nav-link-num,
+    .nav-link:active .nav-link-num { color: rgba(99,102,241,0.65); }
 
-    /* Footer area */
+    /* Footer */
     .nav-mob-footer {
       display: flex;
       flex-direction: column;
       gap: 0.6rem;
       padding-top: 1.25rem;
       opacity: 0;
-      transform: translateY(12px);
-      transition: opacity 0.4s 0.32s, transform 0.4s 0.32s;
+      transform: translateY(10px);
+      transition: opacity 0.35s 0.28s, transform 0.35s 0.28s;
     }
     .nav-mobile.open .nav-mob-footer { opacity: 1; transform: none; }
-
     .nav-mob-cta {
       display: flex;
       align-items: center;
       justify-content: center;
       gap: 0.5rem;
       background: linear-gradient(135deg, #6366f1, #a855f7);
-      color: white;
+      color: #fff;
       text-decoration: none;
       padding: 0.875rem 1.25rem;
       font-family: 'Archivo', sans-serif;
-      font-size: 0.78rem;
+      font-size: 0.8rem;
       font-weight: 700;
       letter-spacing: 0.08em;
       text-transform: uppercase;
       border-radius: 10px;
-      transition: opacity 0.2s;
     }
-    .nav-mob-cta:hover { opacity: 0.88; }
-
     .nav-mob-meta {
       display: flex;
-      align-items: center;
       justify-content: space-between;
       font-size: 0.65rem;
-      letter-spacing: 0.05em;
-      color: rgba(148,163,184,0.4);
+      color: rgba(148,163,184,0.35);
     }
-    .nav-mob-meta a { color: inherit; text-decoration: none; transition: color 0.2s; }
-    .nav-mob-meta a:hover { color: rgba(148,163,184,0.8); }
+    .nav-mob-meta a { color: inherit; text-decoration: none; }
 
     @media (max-width: 640px) {
       /* Nav */
@@ -834,7 +854,13 @@
   <div class="nav-mobile" id="navMobile">
     <div class="nav-mob-orb nav-mob-orb-1"></div>
     <div class="nav-mob-orb nav-mob-orb-2"></div>
-    <div class="nav-mob-inner">
+    <div class="nav-mob-header">
+      <span class="nav-mob-logo">FeMa<span> Studio</span></span>
+      <button class="nav-mob-close" id="navClose" aria-label="Menü schließen">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <div class="nav-mob-body">
       <p class="nav-mob-label">Navigation</p>
       <nav class="nav-mob-links">
         <a href="#leistungen" class="nav-link">
@@ -857,7 +883,7 @@
       <div class="nav-mob-footer">
         <a href="tel:+4915906463241" class="nav-mob-cta">
           <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.19h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.77a16 16 0 0 0 6.29 6.29l1.64-1.64a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-          Kostenloses Gespräch starten
+          Kostenloses Gespräch
         </a>
         <div class="nav-mob-meta">
           <a href="mailto:hello@fema-studio.de">hello@fema-studio.de</a>
@@ -1308,24 +1334,27 @@
   <script>
     const burger = document.getElementById('navBurger');
     const mobileMenu = document.getElementById('navMobile');
+    const closeBtn = document.getElementById('navClose');
 
     function openMenu() {
-      burger.classList.add('open');
+      mobileMenu.style.display = 'flex';
+      void mobileMenu.offsetHeight; // force reflow so transitions fire
       mobileMenu.classList.add('open');
       document.body.style.overflow = 'hidden';
-      burger.setAttribute('aria-label', 'Menü schließen');
     }
     function closeMenu() {
-      burger.classList.remove('open');
       mobileMenu.classList.remove('open');
       document.body.style.overflow = '';
-      burger.setAttribute('aria-label', 'Menü öffnen');
+      setTimeout(() => {
+        if (!mobileMenu.classList.contains('open')) {
+          mobileMenu.style.display = 'none';
+        }
+      }, 350);
     }
 
-    burger.addEventListener('click', () => {
-      mobileMenu.classList.contains('open') ? closeMenu() : openMenu();
-    });
-    mobileMenu.querySelectorAll('a').forEach(link => {
+    burger.addEventListener('click', openMenu);
+    closeBtn.addEventListener('click', closeMenu);
+    mobileMenu.querySelectorAll('.nav-link').forEach(link => {
       link.addEventListener('click', closeMenu);
     });
     document.addEventListener('keydown', (e) => {
