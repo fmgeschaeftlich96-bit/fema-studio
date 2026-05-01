@@ -501,6 +501,18 @@
       .kontakt-card { padding: 2rem 1.5rem; }
       .referenz-info { padding: 1.75rem; }
       .preise-card { padding: 1.5rem; }
+      .preise-card[style*="grid-column"] {
+        grid-template-columns: 1fr !important;
+        gap: 1.25rem !important;
+      }
+      .preise-card[style*="grid-column"] ul {
+        grid-template-columns: 1fr !important;
+      }
+      .preise-card[style*="grid-column"] a.btn-primary {
+        width: 100% !important;
+        justify-content: center;
+        display: flex !important;
+      }
     }
 
     /* PREISE */
