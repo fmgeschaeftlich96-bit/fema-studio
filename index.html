@@ -30,6 +30,17 @@
       background: var(--bg);
       color: var(--text);
       line-height: 1.6;
+    }
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      background:
+        radial-gradient(ellipse 70% 50% at 15% 25%, rgba(99,102,241,0.09), transparent 70%),
+        radial-gradient(ellipse 55% 45% at 85% 65%, rgba(168,85,247,0.07), transparent 70%),
+        radial-gradient(ellipse 40% 60% at 50% 90%, rgba(6,182,212,0.05), transparent 70%);
+      pointer-events: none;
       overflow-x: hidden;
     }
 
@@ -636,7 +647,7 @@
   <section>
     <div class="container">
       <div class="section-header reveal">
-        <p class="label-tag">Jetzt anfragen</p>
+        <p class="label-tag">Kontakt</p>
         <h2>Interesse? Einfach melden.</h2>
         <p>Kein Druck, kein Vertrag, kein langer Vorlauf. Einfach kurz melden — ich melde mich zurück.</p>
       </div>
