@@ -520,9 +520,9 @@
     .nav-mobile {
       display: none;
       position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
+      top: 0; left: 0;
       width: 100%; height: 100%;
-      z-index: 300;
+      z-index: 9999;
       background: #05050f;
       flex-direction: column;
       overflow: hidden;
@@ -632,7 +632,7 @@
 
     .nav-link-text {
       font-family: 'Archivo', sans-serif;
-      font-size: 1.85rem;
+      font-size: clamp(1.5rem, 7vw, 2rem);
       font-weight: 900;
       letter-spacing: -0.03em;
       line-height: 1.1;
@@ -837,7 +837,7 @@
   <canvas id="beams-canvas"></canvas>
 
   <!-- NAV -->
-  <nav>
+  <nav id="mainNav">
     <span class="nav-logo">FeMa<span style="-webkit-text-fill-color:#e2e8f0;background:none;font-weight:400;"> Studio</span></span>
     <div class="nav-links">
       <a href="#leistungen">Leistungen</a>
@@ -1335,19 +1335,24 @@
     const burger = document.getElementById('navBurger');
     const mobileMenu = document.getElementById('navMobile');
     const closeBtn = document.getElementById('navClose');
+    const mainNav = document.getElementById('mainNav');
 
     function openMenu() {
+      // Hide nav first — iOS Safari renders backdrop-filter elements above
+      // all z-index values, which causes the nav bar to paint over the overlay.
+      mainNav.style.display = 'none';
       mobileMenu.style.display = 'flex';
-      void mobileMenu.offsetHeight; // force reflow so transitions fire
+      void mobileMenu.offsetHeight;
       mobileMenu.classList.add('open');
-      document.body.style.overflow = 'hidden';
+      document.documentElement.style.overflow = 'hidden';
     }
     function closeMenu() {
       mobileMenu.classList.remove('open');
-      document.body.style.overflow = '';
+      document.documentElement.style.overflow = '';
       setTimeout(() => {
         if (!mobileMenu.classList.contains('open')) {
           mobileMenu.style.display = 'none';
+          mainNav.style.display = '';
         }
       }, 350);
     }
