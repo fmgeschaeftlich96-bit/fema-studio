@@ -889,6 +889,16 @@
     }
     .preise-features li svg { color: #6366f1; flex-shrink: 0; margin-top: 2px; }
     .preise-features li.hl { color: var(--text); font-weight: 600; }
+    .preise-goal {
+      font-size: 0.65rem; letter-spacing: 0.14em; text-transform: uppercase;
+      color: rgba(165,180,252,0.6); font-weight: 600; margin-bottom: 0.35rem;
+    }
+    .preise-features li.roi {
+      margin-top: 0.5rem; padding-top: 0.9rem;
+      border-top: 1px solid var(--border);
+      color: #4ade80; font-style: italic; font-size: 0.8rem; line-height: 1.55;
+    }
+    .preise-features li.roi svg { color: #4ade80; flex-shrink: 0; margin-top: 3px; }
     .preise-divider { height: 1px; background: var(--border); margin: 1.5rem 0; }
     .preise-note {
       text-align: center;
@@ -1350,55 +1360,61 @@
 
       <div class="preise-grid">
 
-        <!-- Starter -->
+        <!-- Digitale Visitenkarte -->
         <div class="preise-card reveal">
-          <p class="preise-name">Starter</p>
+          <p class="preise-goal">Ziel: Gefunden werden &amp; Vertrauen</p>
+          <p class="preise-name">Digitale Visitenkarte</p>
           <p class="preise-price">599 <span>€</span></p>
-          <p class="preise-desc">Der perfekte Einstieg — alles auf einer Seite, direkt einsatzbereit.</p>
+          <p class="preise-desc">Sie sind online, sehen professionell aus und werden über Google gefunden.</p>
           <div class="preise-divider"></div>
           <ul class="preise-features">
-            <li><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Landing Page (alles auf einer Seite)</li>
+            <li><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Professioneller Webauftritt auf einer Seite</li>
             <li><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Mobil-optimiert</li>
             <li><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Telefon- &amp; WhatsApp-Button</li>
             <li><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Lieferung in 7 Tagen</li>
             <li><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> 1 Korrekturschleife</li>
+            <li class="roi"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg> ROI-Check: Schon 1 Neukunde pro Monat über Google macht die Website in unter 6 Monaten profitabel.</li>
           </ul>
-          <a href="tel:+4915906463241" class="btn-secondary" style="width:100%;justify-content:center;border-radius:8px;display:flex;">Jetzt anfragen</a>
+          <a href="https://wa.me/4915906463241?text=Hallo%20Felix%2C%20ich%20interessiere%20mich%20für%20die%20Digitale%20Visitenkarte." target="_blank" rel="noopener noreferrer" class="btn-secondary" style="width:100%;justify-content:center;border-radius:8px;display:flex;">Jetzt anfragen</a>
         </div>
 
-        <!-- Standard -->
+        <!-- Kunden-Magnet -->
         <div class="preise-card featured reveal">
           <span class="preise-badge">Beliebt</span>
-          <p class="preise-name">Standard</p>
+          <p class="preise-goal">Ziel: Aktive Anfragen über die Website</p>
+          <p class="preise-name">Kunden-Magnet</p>
           <p class="preise-price">1.099 <span>€</span></p>
-          <p class="preise-desc">Für Betriebe die professionell auftreten und gefunden werden wollen.</p>
+          <p class="preise-desc">Ihre Website arbeitet für Sie — und bringt Interessenten direkt zu Ihnen.</p>
           <div class="preise-divider"></div>
           <ul class="preise-features">
-            <li class="hl"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Bis zu 5 Unterseiten</li>
-            <li><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Kontaktformular mit E-Mail</li>
-            <li><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Google Maps Integration</li>
+            <li class="hl"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Mehrere Seiten: Leistungen, Über uns, Kontakt</li>
+            <li><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Anfrage-Formular mit direkter E-Mail</li>
+            <li><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Google Maps &amp; Standort-Integration</li>
             <li class="hl"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> SEO-Grundlagen inklusive</li>
             <li><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Lieferung in 14 Tagen</li>
             <li><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> 2 Korrekturschleifen</li>
+            <li class="roi"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg> ROI-Check: Zwei neue Aufträge über das Kontaktformular, und die Investition ist drin.</li>
           </ul>
-          <a href="tel:+4915906463241" class="btn-primary" style="width:100%;justify-content:center;border-radius:8px;display:flex;">Jetzt anfragen</a>
+          <a href="https://wa.me/4915906463241?text=Hallo%20Felix%2C%20ich%20interessiere%20mich%20für%20den%20Kunden-Magneten." target="_blank" rel="noopener noreferrer" class="btn-primary" style="width:100%;justify-content:center;border-radius:8px;display:flex;">Jetzt anfragen</a>
         </div>
 
-        <!-- Komplett -->
+        <!-- Marktführer-Paket -->
         <div class="preise-card reveal">
-          <p class="preise-name">Komplett</p>
+          <p class="preise-goal">Ziel: Dominanz in der Region &amp; Recruiting-System</p>
+          <p class="preise-name">Marktführer-Paket</p>
           <p class="preise-price">1.799 <span>€</span></p>
-          <p class="preise-desc">Voller Service — von der Idee bis zur fertigen Website mit Betreuung.</p>
+          <p class="preise-desc">Vollständiger Online-Auftritt der neue Kunden bringt und gute Mitarbeiter anzieht.</p>
           <div class="preise-divider"></div>
           <ul class="preise-features">
             <li class="hl"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Individuelles Design (kein Template)</li>
-            <li><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Alles aus Standard inklusive</li>
-            <li class="hl"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Google My Business Einrichtung</li>
+            <li><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Alles aus Kunden-Magnet inklusive</li>
+            <li class="hl"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Karriereseite &amp; Recruiting-Bereich</li>
+            <li><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Google My Business Einrichtung</li>
             <li><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> 3 Monate Wartung &amp; Support</li>
             <li><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Priorität — Lieferung in 10 Tagen</li>
-            <li><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Unbegrenzte Korrekturschleifen</li>
+            <li class="roi"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg> ROI-Check: Eine Mitarbeiterfindung über die Website spart 2.000–4.000 € Vermittlungsgebühr.</li>
           </ul>
-          <a href="tel:+4915906463241" class="btn-secondary" style="width:100%;justify-content:center;border-radius:8px;display:flex;">Jetzt anfragen</a>
+          <a href="https://wa.me/4915906463241?text=Hallo%20Felix%2C%20ich%20interessiere%20mich%20für%20das%20Marktführer-Paket." target="_blank" rel="noopener noreferrer" class="btn-secondary" style="width:100%;justify-content:center;border-radius:8px;display:flex;">Jetzt anfragen</a>
         </div>
 
         <!-- Maßarbeit (full-width) -->
