@@ -512,14 +512,8 @@
     footer {
       position: relative; z-index: 1;
       border-top: 1px solid var(--border);
-      padding: 2rem 1.5rem;
-      text-align: center;
+      padding: 3rem 1.5rem 2rem;
       color: var(--muted); font-size: 0.75rem;
-    }
-    footer span {
-      background: linear-gradient(90deg, #6366f1, #a855f7);
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-      font-weight: 600;
     }
 
     /* DIVIDER */
@@ -904,6 +898,77 @@
       line-height: 1.8;
     }
 
+    /* WARUM ICH */
+    .warum-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+    }
+    @media (max-width: 560px) { .warum-grid { grid-template-columns: 1fr; } }
+    .warum-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.75rem;
+      display: flex; gap: 1.25rem; align-items: flex-start;
+      transition: border-color 0.25s, transform 0.3s cubic-bezier(0.4,0,0.2,1);
+      will-change: transform;
+    }
+    .warum-card:hover { border-color: rgba(99,102,241,0.3); transform: translateY(-3px); }
+    .warum-num {
+      font-family: 'Archivo', sans-serif;
+      font-size: 2rem; font-weight: 900; line-height: 1;
+      background: linear-gradient(135deg, #6366f1, #a855f7);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+      flex-shrink: 0; width: 2rem;
+    }
+    .warum-card h3 { font-size: 0.95rem; font-weight: 700; color: var(--text); margin-bottom: 0.4rem; }
+    .warum-card p { font-size: 0.82rem; color: var(--muted-light); line-height: 1.7; }
+
+    /* URGENCY */
+    .urgency-notice {
+      display: flex; align-items: center; justify-content: center; gap: 0.65rem;
+      background: rgba(251,146,60,0.07);
+      border: 1px solid rgba(251,146,60,0.25);
+      border-radius: 10px;
+      padding: 0.85rem 1.25rem;
+      margin-bottom: 2rem;
+      font-size: 0.84rem; color: var(--muted-light); line-height: 1.5;
+      text-align: center;
+    }
+    .urgency-notice strong { color: #fb923c; }
+    .urgency-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: #fb923c; flex-shrink: 0;
+      animation: pulse 1.8s ease-in-out infinite;
+    }
+
+    /* FOOTER */
+    .footer-inner {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr;
+      gap: 3rem;
+      padding-bottom: 2.5rem;
+      margin-bottom: 2rem;
+      border-bottom: 1px solid var(--border);
+    }
+    @media (max-width: 720px) { .footer-inner { grid-template-columns: 1fr 1fr; gap: 2rem; } }
+    @media (max-width: 480px) { .footer-inner { grid-template-columns: 1fr; gap: 1.5rem; } }
+    .footer-brand p { font-size: 0.8rem; color: var(--muted); line-height: 1.7; margin-top: 0.75rem; max-width: 220px; }
+    .footer-col h4 { font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); font-weight: 600; margin-bottom: 1rem; }
+    .footer-col a {
+      display: block; font-size: 0.82rem; color: var(--muted-light); text-decoration: none;
+      margin-bottom: 0.6rem; transition: color 0.2s;
+    }
+    .footer-col a:hover { color: var(--text); }
+    .footer-bottom {
+      display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.75rem;
+      font-size: 0.72rem; color: var(--muted);
+    }
+    .footer-legal { display: flex; gap: 1.25rem; }
+    .footer-legal a { color: var(--muted); text-decoration: none; transition: color 0.2s; }
+    .footer-legal a:hover { color: var(--muted-light); }
+
     /* PFLEGE-PAKET */
     .preise-pflege {
       margin-top: 1.5rem;
@@ -1222,6 +1287,49 @@
 
   <div class="divider"></div>
 
+  <!-- WARUM ICH -->
+  <section>
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="label-tag">Warum FeMa Studio</p>
+        <h2>Was mich von einer Agentur unterscheidet</h2>
+        <p>Kein Vertriebsmitarbeiter, kein anonymes Team — Sie arbeiten direkt mit mir.</p>
+      </div>
+      <div class="warum-grid">
+        <div class="warum-card reveal">
+          <span class="warum-num">1</span>
+          <div>
+            <h3>Direkt & persönlich</h3>
+            <p>Kein Projektmanager dazwischen. Sie schreiben mir direkt auf WhatsApp und bekommen eine echte Antwort von mir — nicht vom Support-Team.</p>
+          </div>
+        </div>
+        <div class="warum-card reveal">
+          <span class="warum-num">2</span>
+          <div>
+            <h3>Aus der Region</h3>
+            <p>Ich kenne Neuruppin und Umgebung. Ihre Kunden sind auch meine Zielgruppe — das merkt man daran, wie eine Website für lokale Betriebe gebaut sein muss.</p>
+          </div>
+        </div>
+        <div class="warum-card reveal">
+          <span class="warum-num">3</span>
+          <div>
+            <h3>Faire, klare Preise</h3>
+            <p>Was wir vereinbaren, gilt. Keine versteckten Kosten, keine nachträglichen Aufschläge. Sie zahlen einmal — und die Website gehört Ihnen.</p>
+          </div>
+        </div>
+        <div class="warum-card reveal">
+          <span class="warum-num">4</span>
+          <div>
+            <h3>Moderner Standard</h3>
+            <p>Keine veralteten Templates. Ich baue Websites mit aktuellen Technologien: schnell ladend, mobiloptimiert und für Google sichtbar.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
   <!-- PREISE -->
   <section id="preise">
     <div class="container">
@@ -1230,6 +1338,11 @@
         <h2>Was kostet eine Website?</h2>
         <p>Keine versteckten Kosten. Kein Abo. Einmal zahlen — Ihre Website gehört Ihnen.</p>
       </div>
+      <div class="urgency-notice reveal">
+        <span class="urgency-dot"></span>
+        Ich nehme aktuell noch <strong>2 neue Projekte im Mai</strong> an — danach erst wieder ab Juni verfügbar.
+      </div>
+
       <div class="preise-anchor reveal">
         Webagenturen in der Region berechnen für eine vergleichbare Website <strong>3.000 – 8.000 €</strong> — oft mit monatelanger Wartezeit und versteckten Folgekosten.<br>
         Bei mir bekommen Sie die gleiche Qualität: <strong>direkt, transparent und ohne Agentur-Aufwand.</strong>
@@ -1498,7 +1611,35 @@
   </section>
 
   <footer>
-    <p>© 2026 <span>FeMa Studio</span> · Webdesign Neuruppin</p>
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <span class="nav-logo" style="font-size:1.1rem;">FeMa<span style="-webkit-text-fill-color:#e2e8f0;background:none;font-weight:400;"> Studio</span></span>
+          <p>Webdesign für lokale Unternehmen in Neuruppin, Oranienburg und der Region Brandenburg.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <a href="#leistungen">Leistungen</a>
+          <a href="#ablauf">Ablauf</a>
+          <a href="#preise">Preise</a>
+          <a href="#faq">FAQ</a>
+          <a href="#referenz">Referenz</a>
+        </div>
+        <div class="footer-col">
+          <h4>Kontakt</h4>
+          <a href="https://wa.me/4915906463241" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+          <a href="tel:+4915906463241">0159 0646 3241</a>
+          <a href="mailto:hello@fema-studio.de">hello@fema-studio.de</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 <span style="background:linear-gradient(90deg,#6366f1,#a855f7);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-weight:600;">FeMa Studio</span> · Webdesign Neuruppin</span>
+        <div class="footer-legal">
+          <a href="#" style="opacity:0.4;pointer-events:none;">Impressum</a>
+          <a href="#" style="opacity:0.4;pointer-events:none;">Datenschutz</a>
+        </div>
+      </div>
+    </div>
   </footer>
 
   <a href="https://wa.me/4915906463241" target="_blank" rel="noopener noreferrer"
