@@ -134,6 +134,8 @@
       position: fixed; inset: 0; z-index: 0; pointer-events: none;
       width: 100%; height: 100%;
       filter: blur(12px);
+      will-change: transform;
+      transform: translateZ(0);
     }
 
     /* NAV */
@@ -238,9 +240,10 @@
       color: white; font-size: 0.8rem; font-weight: 600;
       letter-spacing: 0.05em; padding: 0.85rem 2rem;
       border-radius: 8px; text-decoration: none;
-      transition: transform 0.22s cubic-bezier(0.4,0,0.2,1), box-shadow 0.22s; cursor: pointer;
-      box-shadow: 0 4px 24px rgba(99,102,241,0.3);
+      transition: transform 0.22s cubic-bezier(0.4,0,0.2,1); cursor: pointer;
+      box-shadow: 0 4px 24px rgba(99,102,241,0.35);
       position: relative; overflow: hidden;
+      will-change: transform;
     }
     .btn-primary::after {
       content: '';
@@ -251,7 +254,7 @@
       transform: skewX(-18deg);
       transition: left 0.55s cubic-bezier(0.4,0,0.2,1);
     }
-    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(99,102,241,0.45); }
+    .btn-primary:hover { transform: translateY(-2px); }
     .btn-primary:hover::after { left: 160%; }
     .btn-secondary {
       display: inline-flex; align-items: center; gap: 0.5rem;
@@ -358,13 +361,13 @@
       border-radius: 12px;
       padding: 1.75rem;
       position: relative; overflow: hidden;
-      transition: border-color 0.3s, transform 0.35s cubic-bezier(0.4,0,0.2,1), box-shadow 0.35s;
+      transition: border-color 0.3s, transform 0.35s cubic-bezier(0.4,0,0.2,1);
       cursor: default;
+      will-change: transform;
     }
     .bento-card:hover {
       border-color: rgba(99,102,241,0.35);
       transform: translateY(-5px);
-      box-shadow: 0 16px 48px rgba(99,102,241,0.1);
     }
     .bento-card .icon-wrap {
       width: 40px; height: 40px; border-radius: 8px;
@@ -382,6 +385,7 @@
     .bento-card .glow {
       position: absolute; inset: -1px; border-radius: 12px;
       background: linear-gradient(135deg, rgba(99,102,241,0.12), rgba(168,85,247,0.08));
+      box-shadow: 0 16px 48px rgba(99,102,241,0.12);
       opacity: 0; transition: opacity 0.35s; z-index: -1;
     }
     .bento-card:hover .glow { opacity: 1; }
@@ -1342,7 +1346,7 @@
     (function() {
       const canvas = document.getElementById('beams-canvas');
       const ctx = canvas.getContext('2d');
-      const BEAM_COUNT = 22;
+      const BEAM_COUNT = 12;
       let beams = [], W, H;
 
       function createBeam(i) {
@@ -1399,7 +1403,6 @@
 
       function animate() {
         ctx.clearRect(0, 0, W, H);
-        ctx.filter = 'blur(32px)';
         beams.forEach((b, i) => {
           b.y -= b.speed;
           b.pulse += b.pulseSpeed;
