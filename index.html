@@ -1680,9 +1680,16 @@
         b.opacity = 0.07 + Math.random() * 0.08;
       }
 
-      function resize() {
+      let resizeTimer;
+      function resize(force) {
         const dpr = window.devicePixelRatio || 1;
-        W = window.innerWidth; H = window.innerHeight;
+        const newW = window.innerWidth;
+        const newH = window.innerHeight;
+        if (!force && Math.abs(newW - W) < 6) {
+          canvas.style.height = newH + 'px';
+          return;
+        }
+        W = newW; H = newH;
         canvas.width = W * dpr; canvas.height = H * dpr;
         canvas.style.width = W + 'px'; canvas.style.height = H + 'px';
         ctx.scale(dpr, dpr);
@@ -1717,8 +1724,11 @@
         requestAnimationFrame(animate);
       }
 
-      resize();
-      window.addEventListener('resize', resize);
+      resize(true);
+      window.addEventListener('resize', () => {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(() => resize(false), 150);
+      });
       animate();
     })();
   </script>
