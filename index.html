@@ -138,11 +138,9 @@
     #beams-canvas {
       position: fixed; inset: 0; z-index: 0; pointer-events: none;
       width: 100%; height: 100%;
-      filter: blur(12px);
       will-change: transform;
       transform: translateZ(0);
     }
-    @media (max-width: 768px) { #beams-canvas { filter: none; } }
 
     /* NAV */
     nav {
@@ -1705,7 +1703,7 @@
       const canvas = document.getElementById('beams-canvas');
       const ctx = canvas.getContext('2d');
       const isMobile = window.innerWidth <= 768;
-      const BEAM_COUNT = isMobile ? 4 : 12;
+      const BEAM_COUNT = isMobile ? 7 : 12;
       let beams = [], W, H;
 
       function createBeam(i) {
@@ -1755,15 +1753,24 @@
         ctx.translate(b.x, b.y);
         ctx.rotate(b.angle * Math.PI / 180);
         const po = b.opacity * (0.8 + Math.sin(b.pulse) * 0.2);
-        const g = ctx.createLinearGradient(0, 0, 0, b.length);
-        g.addColorStop(0,   `hsla(${b.hue},82%,65%,0)`);
-        g.addColorStop(0.1, `hsla(${b.hue},82%,65%,${po * 0.5})`);
-        g.addColorStop(0.4, `hsla(${b.hue},82%,65%,${po})`);
-        g.addColorStop(0.6, `hsla(${b.hue},82%,65%,${po})`);
-        g.addColorStop(0.9, `hsla(${b.hue},82%,65%,${po * 0.5})`);
-        g.addColorStop(1,   `hsla(${b.hue},82%,65%,0)`);
-        ctx.fillStyle = g;
-        ctx.fillRect(-b.width / 2, 0, b.width, b.length);
+        // 3 Schichten simulieren den Blur-Effekt ohne CSS filter
+        const layers = [
+          { wMult: 1,   o: po },
+          { wMult: 3.5, o: po * 0.3 },
+          { wMult: 8,   o: po * 0.1 },
+        ];
+        layers.forEach(({ wMult, o }) => {
+          const w = b.width * wMult;
+          const g = ctx.createLinearGradient(0, 0, 0, b.length);
+          g.addColorStop(0,   `hsla(${b.hue},82%,65%,0)`);
+          g.addColorStop(0.1, `hsla(${b.hue},82%,65%,${o * 0.5})`);
+          g.addColorStop(0.4, `hsla(${b.hue},82%,65%,${o})`);
+          g.addColorStop(0.6, `hsla(${b.hue},82%,65%,${o})`);
+          g.addColorStop(0.9, `hsla(${b.hue},82%,65%,${o * 0.5})`);
+          g.addColorStop(1,   `hsla(${b.hue},82%,65%,0)`);
+          ctx.fillStyle = g;
+          ctx.fillRect(-w / 2, 0, w, b.length);
+        });
         ctx.restore();
       }
 
