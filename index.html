@@ -142,7 +142,7 @@
       will-change: transform;
       transform: translateZ(0);
     }
-    @media (max-width: 768px) { #beams-canvas { display: none; } }
+    @media (max-width: 768px) { #beams-canvas { filter: none; } }
 
     /* NAV */
     nav {
@@ -528,8 +528,12 @@
     .divider { height: 1px; background: var(--border); margin: 0; }
 
     /* SCROLL ANIMATION */
-    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; will-change: opacity, transform; }
     .reveal.visible { opacity: 1; transform: translateY(0); }
+    @media (max-width: 768px) {
+      .reveal { transform: none; transition: opacity 0.45s ease; }
+      .reveal.visible { opacity: 1; }
+    }
 
     /* HAMBURGER BUTTON */
     .nav-burger {
@@ -1661,10 +1665,10 @@
 
   <script>
     (function() {
-      if (window.innerWidth <= 768) return;
       const canvas = document.getElementById('beams-canvas');
       const ctx = canvas.getContext('2d');
-      const BEAM_COUNT = 12;
+      const isMobile = window.innerWidth <= 768;
+      const BEAM_COUNT = isMobile ? 4 : 12;
       let beams = [], W, H;
 
       function createBeam(i) {
