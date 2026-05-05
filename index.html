@@ -392,7 +392,9 @@
 
     /* STEPS */
     .steps-wrap { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 3rem; }
-    .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 2rem; }
+    .steps { display: grid; grid-template-columns: repeat(5, 1fr); gap: 2rem; }
+    @media (max-width: 900px) { .steps { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 600px) { .steps { grid-template-columns: repeat(2, 1fr); } }
     .step { position: relative; }
     .step:not(:last-child)::after {
       content: '';
