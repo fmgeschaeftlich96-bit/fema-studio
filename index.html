@@ -113,6 +113,7 @@
       background: var(--bg);
       color: var(--text);
       line-height: 1.6;
+      overscroll-behavior: none;
     }
     body::before {
       content: '';
@@ -125,6 +126,10 @@
         radial-gradient(ellipse 40% 60% at 50% 90%, rgba(6,182,212,0.05), transparent 70%);
       pointer-events: none;
       overflow-x: hidden;
+      will-change: transform;
+    }
+    @media (max-width: 768px) {
+      body::before { position: absolute; }
     }
 
     h1, h2, h3 { font-family: 'Archivo', sans-serif; }
@@ -137,6 +142,7 @@
       will-change: transform;
       transform: translateZ(0);
     }
+    @media (max-width: 768px) { #beams-canvas { display: none; } }
 
     /* NAV */
     nav {
@@ -752,7 +758,7 @@
       /* 1. Hero-Schriftgröße */
       .hero h1 { font-size: clamp(2rem, 10vw, 2.8rem); }
       .hero-sub { font-size: 0.95rem; }
-      .hero { padding: 7rem 1.25rem 4rem; }
+      .hero { padding: 7rem 1.25rem 4rem; min-height: 100svh; }
 
       /* 2. Section-Abstände */
       section { padding: 3.5rem 1.25rem; }
@@ -1655,6 +1661,7 @@
 
   <script>
     (function() {
+      if (window.innerWidth <= 768) return;
       const canvas = document.getElementById('beams-canvas');
       const ctx = canvas.getContext('2d');
       const BEAM_COUNT = 12;
