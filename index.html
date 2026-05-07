@@ -569,9 +569,9 @@
       display: none;
       position: fixed;
       inset: 0;
-      background: rgba(5,5,15,0.55);
-      backdrop-filter: blur(5px);
-      -webkit-backdrop-filter: blur(5px);
+      background: rgba(5,5,15,0.6);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
       z-index: 998;
       opacity: 0;
       transition: opacity 0.3s ease;
@@ -582,41 +582,43 @@
     .nav-drawer {
       position: fixed;
       top: 0; right: 0;
-      width: 290px;
-      max-width: 85vw;
-      height: 100%;
+      width: 280px;
+      max-width: 82vw;
+      height: 100vh;
+      height: 100dvh;
       z-index: 999;
-      background: rgba(8,8,22,0.99);
-      border-left: 1px solid rgba(255,255,255,0.07);
+      background: #080816;
+      border-left: 1px solid rgba(255,255,255,0.08);
       display: flex;
       flex-direction: column;
       transform: translateX(100%);
-      transition: transform 0.35s cubic-bezier(0.4,0,0.2,1);
+      transition: transform 0.32s cubic-bezier(0.4,0,0.2,1);
       will-change: transform;
+      overflow: hidden;
     }
     .nav-drawer.open { transform: translateX(0); }
 
+    /* Header */
     .drawer-header {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 1.5rem 1.25rem 1.25rem;
+      padding: 1.4rem 1.2rem 1.2rem;
       border-bottom: 1px solid rgba(255,255,255,0.07);
       flex-shrink: 0;
     }
     .drawer-logo {
       font-family: 'Archivo', sans-serif;
       font-weight: 800;
-      font-size: 0.95rem;
+      font-size: 1rem;
+      color: #f1f5f9;
+      letter-spacing: -0.01em;
+    }
+    .drawer-logo strong {
       background: linear-gradient(90deg, #6366f1, #a855f7);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
-    }
-    .drawer-logo span {
-      font-weight: 400;
-      -webkit-text-fill-color: rgba(241,245,249,0.5);
-      background: none;
     }
     .drawer-close {
       display: flex; align-items: center; justify-content: center;
@@ -625,45 +627,51 @@
       border: 1px solid rgba(255,255,255,0.08);
       border-radius: 8px;
       cursor: pointer;
-      color: var(--muted-light);
+      color: rgba(148,163,184,0.7);
       transition: background 0.2s, color 0.2s;
+      flex-shrink: 0;
     }
-    .drawer-close:hover { background: rgba(255,255,255,0.1); color: var(--text); }
+    .drawer-close:active { background: rgba(99,102,241,0.15); color: #fff; }
 
+    /* Nav links */
     .drawer-nav {
       flex: 1;
       display: flex;
       flex-direction: column;
-      padding: 1rem 1rem 0.5rem;
+      padding: 1.25rem 0.75rem;
+      gap: 0.2rem;
       overflow-y: auto;
-      gap: 0.25rem;
+      -webkit-overflow-scrolling: touch;
     }
     .drawer-link {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0.8rem 1rem;
-      color: var(--muted-light);
+      padding: 0.9rem 0.75rem;
+      color: rgba(148,163,184,0.85);
       text-decoration: none;
-      font-size: 0.88rem;
+      font-size: 0.9rem;
       font-weight: 500;
-      letter-spacing: 0.01em;
-      border-radius: 8px;
+      border-radius: 10px;
       transition: background 0.15s, color 0.15s;
+      -webkit-tap-highlight-color: transparent;
     }
-    .drawer-link:hover, .drawer-link:active {
-      background: rgba(99,102,241,0.1);
-      color: var(--text);
+    .drawer-link:active {
+      background: rgba(99,102,241,0.12);
+      color: #f1f5f9;
     }
-    .drawer-link svg { opacity: 0.3; transition: opacity 0.15s, transform 0.15s; }
-    .drawer-link:hover svg { opacity: 0.6; transform: translateX(3px); }
+    .drawer-link svg {
+      opacity: 0.25;
+      flex-shrink: 0;
+    }
 
+    /* Footer CTAs */
     .drawer-footer {
-      padding: 1rem 1.25rem 1.5rem;
-      border-top: 1px solid rgba(255,255,255,0.06);
+      padding: 0.75rem 1.2rem 1.75rem;
+      border-top: 1px solid rgba(255,255,255,0.07);
       display: flex;
       flex-direction: column;
-      gap: 0.6rem;
+      gap: 0.55rem;
       flex-shrink: 0;
     }
     .drawer-cta-wa {
@@ -671,42 +679,40 @@
       background: linear-gradient(135deg, #6366f1, #a855f7);
       color: #fff; -webkit-text-fill-color: #fff;
       text-decoration: none;
-      padding: 0.8rem 1rem;
+      padding: 0.8rem;
       font-family: 'Archivo', sans-serif;
-      font-size: 0.75rem;
+      font-size: 0.72rem;
       font-weight: 700;
       letter-spacing: 0.08em;
       text-transform: uppercase;
-      border-radius: 8px;
+      border-radius: 10px;
     }
     .drawer-cta-call {
       display: flex; align-items: center; justify-content: center; gap: 0.5rem;
       background: rgba(255,255,255,0.04);
       border: 1px solid rgba(255,255,255,0.08);
-      color: var(--muted-light); -webkit-text-fill-color: var(--muted-light);
+      color: rgba(148,163,184,0.7); -webkit-text-fill-color: rgba(148,163,184,0.7);
       text-decoration: none;
-      padding: 0.7rem 1rem;
+      padding: 0.7rem;
       font-size: 0.78rem;
       font-weight: 500;
-      border-radius: 8px;
-      transition: background 0.2s, color 0.2s;
+      border-radius: 10px;
     }
-    .drawer-cta-call:hover { background: rgba(255,255,255,0.08); color: var(--text); -webkit-text-fill-color: var(--text); }
     .drawer-meta {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding-top: 0.25rem;
+      padding-top: 0.2rem;
     }
     .drawer-meta a {
-      color: rgba(148,163,184,0.45);
-      font-size: 0.7rem;
+      color: rgba(148,163,184,0.35);
+      font-size: 0.68rem;
       text-decoration: none;
     }
     .drawer-status {
       display: flex; align-items: center; gap: 0.35rem;
       font-size: 0.68rem;
-      color: rgba(148,163,184,0.45);
+      color: rgba(148,163,184,0.35);
     }
     .drawer-status-dot {
       width: 6px; height: 6px;
@@ -1062,7 +1068,7 @@
   <!-- SIDE DRAWER -->
   <div class="nav-drawer" id="navDrawer" aria-hidden="true">
     <div class="drawer-header">
-      <span class="drawer-logo">FeMa<span> Studio</span></span>
+      <span class="drawer-logo"><strong>FeMa</strong> Studio</span>
       <button class="drawer-close" id="drawerClose" aria-label="Menü schließen">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
       </button>
