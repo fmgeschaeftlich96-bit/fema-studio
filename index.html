@@ -292,6 +292,26 @@
     }
     .btn-gold:active { transform: translateY(0); }
 
+    .btn-green {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: rgba(16,185,129,0.08);
+      border: 1px solid rgba(16,185,129,0.55);
+      color: #34d399; font-size: 0.8rem; font-weight: 600;
+      letter-spacing: 0.05em; padding: 0.85rem 2rem;
+      border-radius: 8px; text-decoration: none;
+      transition: background 0.22s, border-color 0.22s, box-shadow 0.22s, transform 0.22s;
+      cursor: pointer; white-space: nowrap;
+      box-shadow: 0 0 0 rgba(16,185,129,0);
+    }
+    .btn-green:hover {
+      background: rgba(16,185,129,0.16);
+      border-color: rgba(16,185,129,0.9);
+      box-shadow: 0 4px 20px rgba(16,185,129,0.25);
+      transform: translateY(-2px);
+      color: #6ee7b7;
+    }
+    .btn-green:active { transform: translateY(0); }
+
     /* WHATSAPP FLOAT */
     .wa-float {
       position: fixed; bottom: 1.75rem; right: 1.75rem; z-index: 200;
@@ -1021,7 +1041,7 @@
     @media (max-width: 900px) {
       .preise-pflege { grid-template-columns: 1fr 1fr; }
       .preise-pflege-price { text-align: left; }
-      .preise-pflege > a { grid-column: 1 / -1; justify-content: center; display: flex; }
+      .preise-pflege > a { grid-column: 1 / -1; justify-content: center; display: flex; width: 100%; }
     }
     @media (max-width: 560px) {
       .preise-pflege { grid-template-columns: 1fr; padding: 1.5rem; }
@@ -1493,10 +1513,7 @@
           <li><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Persönlich per WhatsApp erreichbar</li>
           <li><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Antwort innerhalb von 24 Stunden</li>
         </ul>
-        <a href="https://wa.me/4915906463241?text=Hallo%20Felix%2C%20ich%20interessiere%20mich%20für%20das%20Pflege-Paket." target="_blank" rel="noopener noreferrer" class="btn-primary" style="white-space:nowrap;border-radius:8px;background:linear-gradient(135deg,#10b981,#06b6d4);box-shadow:0 4px 24px rgba(16,185,129,0.3);">
-          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.115.549 4.099 1.508 5.832L.057 23.868c-.054.209.005.43.158.578A.75.75 0 0 0 .75 24c.064 0 .129-.008.192-.025l6.186-1.618A11.943 11.943 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.72 9.72 0 0 1-5.058-1.415l-.363-.217-3.762.985.998-3.655-.236-.374A9.699 9.699 0 0 1 2.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z"/></svg>
-          Jetzt anfragen
-        </a>
+        <a href="https://wa.me/4915906463241?text=Hallo%20Felix%2C%20ich%20interessiere%20mich%20für%20das%20Pflege-Paket." target="_blank" rel="noopener noreferrer" class="btn-green"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.115.549 4.099 1.508 5.832L.057 23.868c-.054.209.005.43.158.578A.75.75 0 0 0 .75 24c.064 0 .129-.008.192-.025l6.186-1.618A11.943 11.943 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.72 9.72 0 0 1-5.058-1.415l-.363-.217-3.762.985.998-3.655-.236-.374A9.699 9.699 0 0 1 2.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z"/></svg> Jetzt anfragen</a>
       </div>
       <p class="preise-note" style="margin-top:1.25rem;margin-bottom:0;">Nicht enthalten: Domain (ca. 15 €/Jahr) &amp; Hosting (ca. 3–5 €/Monat bei Hostinger) — ich helfe Ihnen dabei, beides einzurichten.</p>
     </div>
