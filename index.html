@@ -600,63 +600,63 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 1.1rem 1.25rem;
-      border-bottom: 1px solid rgba(255,255,255,0.06);
+      padding: 1.5rem 1.25rem 1.25rem;
       flex-shrink: 0;
     }
     .drawer-logo {
       font-family: 'Archivo', sans-serif;
       font-weight: 800;
-      font-size: 0.95rem;
+      font-size: 1.15rem;
       background: linear-gradient(90deg, #6366f1, #a855f7);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
+      letter-spacing: -0.01em;
     }
     .drawer-logo span {
       font-weight: 400;
-      -webkit-text-fill-color: rgba(241,245,249,0.45);
+      -webkit-text-fill-color: rgba(241,245,249,0.5);
       background: none;
     }
     .drawer-close {
       display: flex; align-items: center; justify-content: center;
-      width: 34px; height: 34px;
-      background: rgba(255,255,255,0.04);
+      width: 32px; height: 32px;
+      background: rgba(255,255,255,0.05);
       border: 1px solid rgba(255,255,255,0.08);
       border-radius: 8px;
       cursor: pointer;
       color: var(--muted-light);
       transition: background 0.2s, color 0.2s;
     }
-    .drawer-close:hover { background: rgba(255,255,255,0.08); color: var(--text); }
+    .drawer-close:hover { background: rgba(255,255,255,0.1); color: var(--text); }
 
     .drawer-nav {
       flex: 1;
       display: flex;
       flex-direction: column;
-      padding: 0.5rem 0;
+      padding: 1rem 1rem 0.5rem;
       overflow-y: auto;
+      gap: 0.25rem;
     }
     .drawer-link {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0.85rem 1.25rem;
+      padding: 0.8rem 1rem;
       color: var(--muted-light);
       text-decoration: none;
-      font-size: 0.9rem;
+      font-size: 0.88rem;
       font-weight: 500;
       letter-spacing: 0.01em;
-      border-bottom: 1px solid rgba(255,255,255,0.04);
+      border-radius: 8px;
       transition: background 0.15s, color 0.15s;
     }
-    .drawer-link:last-child { border-bottom: none; }
     .drawer-link:hover, .drawer-link:active {
-      background: rgba(99,102,241,0.07);
+      background: rgba(99,102,241,0.1);
       color: var(--text);
     }
-    .drawer-link svg { opacity: 0.35; transition: opacity 0.15s, transform 0.15s; }
-    .drawer-link:hover svg { opacity: 0.7; transform: translateX(3px); }
+    .drawer-link svg { opacity: 0.3; transition: opacity 0.15s, transform 0.15s; }
+    .drawer-link:hover svg { opacity: 0.6; transform: translateX(3px); }
 
     .drawer-footer {
       padding: 1rem 1.25rem 1.5rem;
