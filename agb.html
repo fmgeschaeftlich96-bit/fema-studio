@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AGB — FeMa Studio</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="preconnect" href="https://fonts.bunny.net" />
+  <link href="https://fonts.bunny.net/css?family=archivo:400,600,700,800&family=space-grotesk:400,500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:          #05050f;
+      --card:        rgba(15,15,30,0.9);
+      --text:        #f1f5f9;
+      --muted:       #64748b;
+      --muted-light: #94a3b8;
+      --border:      rgba(255,255,255,0.07);
+      --accent:      #6366f1;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
+      font-size: 0.95rem;
+      line-height: 1.8;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(5,5,15,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 1.5rem;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      font-family: 'Archivo', sans-serif;
+      font-weight: 800;
+      font-size: 1rem;
+      background: linear-gradient(90deg, #6366f1, #a855f7);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-decoration: none;
+    }
+
+    .nav-back {
+      color: var(--muted-light);
+      text-decoration: none;
+      font-size: 0.82rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: color 0.2s;
+    }
+    .nav-back:hover { color: var(--text); }
+
+    main {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 4rem 1.5rem 5rem;
+    }
+
+    .page-title {
+      font-family: 'Archivo', sans-serif;
+      font-size: clamp(1.8rem, 5vw, 2.6rem);
+      font-weight: 800;
+      color: var(--text);
+      margin-bottom: 0.4rem;
+    }
+
+    .page-meta {
+      color: var(--muted);
+      font-size: 0.78rem;
+      margin-bottom: 3rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .toc {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 3rem;
+    }
+
+    .toc h3 {
+      font-family: 'Archivo', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.75rem;
+    }
+
+    .toc ol {
+      padding-left: 1.2rem;
+      color: var(--muted-light);
+      font-size: 0.85rem;
+      line-height: 2.1;
+      columns: 2;
+      column-gap: 2rem;
+    }
+
+    @media (max-width: 520px) { .toc ol { columns: 1; } }
+
+    .toc a { color: var(--muted-light); text-decoration: none; }
+    .toc a:hover { color: var(--text); }
+
+    section {
+      margin-bottom: 2.75rem;
+      scroll-margin-top: 72px;
+    }
+
+    section h2 {
+      font-family: 'Archivo', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    section h3 {
+      font-family: 'Archivo', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--muted-light);
+      margin: 1.25rem 0 0.5rem;
+    }
+
+    section p {
+      color: var(--muted-light);
+      line-height: 1.85;
+      margin-bottom: 0.75rem;
+    }
+
+    section ul, section ol {
+      color: var(--muted-light);
+      padding-left: 1.3rem;
+      line-height: 1.9;
+      margin-bottom: 0.75rem;
+    }
+
+    section li { margin-bottom: 0.25rem; }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .hinweis {
+      background: rgba(99,102,241,0.07);
+      border: 1px solid rgba(99,102,241,0.2);
+      border-radius: 8px;
+      padding: 0.9rem 1.1rem;
+      color: var(--muted-light);
+      font-size: 0.85rem;
+      line-height: 1.7;
+      margin-top: 0.75rem;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 2.5rem 0;
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem 1.5rem;
+      text-align: center;
+    }
+
+    .footer-legal {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-legal a {
+      color: var(--muted);
+      font-size: 0.8rem;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-legal a:hover { color: var(--text); }
+    .footer-legal a.aktiv { color: var(--muted-light); }
+
+    .footer-copy {
+      color: var(--muted);
+      font-size: 0.78rem;
+      margin-top: 0.75rem;
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-logo">FeMa Studio</a>
+    <a href="index.html" class="nav-back">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 19"/>
+      </svg>
+      Zurück zur Website
+    </a>
+  </nav>
+
+  <main>
+
+    <h1 class="page-title">Allgemeine Geschäftsbedingungen</h1>
+    <p class="page-meta">
+      FeMa Studio · Felix Mauk · Darritzer Weg 10, 16818 Märkisch Linden<br />
+      Stand: Mai 2026
+    </p>
+
+    <!-- INHALTSVERZEICHNIS -->
+    <div class="toc">
+      <h3>Inhalt</h3>
+      <ol>
+        <li><a href="#geltungsbereich">Geltungsbereich</a></li>
+        <li><a href="#vertragsschluss">Vertragsschluss</a></li>
+        <li><a href="#leistungen">Leistungsumfang</a></li>
+        <li><a href="#vergütung">Vergütung &amp; Zahlung</a></li>
+        <li><a href="#mitwirkung">Mitwirkungspflichten</a></li>
+        <li><a href="#lieferzeiten">Lieferzeiten</a></li>
+        <li><a href="#abnahme">Abnahme</a></li>
+        <li><a href="#urheberrecht">Urheberrecht &amp; Nutzungsrechte</a></li>
+        <li><a href="#gewaehrleistung">Gewährleistung</a></li>
+        <li><a href="#haftung">Haftungsbeschränkung</a></li>
+        <li><a href="#vertraulichkeit">Vertraulichkeit &amp; Datenschutz</a></li>
+        <li><a href="#kuendigung">Kündigung &amp; Aufhebung</a></li>
+        <li><a href="#schluss">Schlussbestimmungen</a></li>
+      </ol>
+    </div>
+
+    <!-- §1 GELTUNGSBEREICH -->
+    <section id="geltungsbereich">
+      <h2>§ 1 Geltungsbereich</h2>
+      <p>
+        (1) Diese Allgemeinen Geschäftsbedingungen (nachfolgend „AGB") gelten für alle
+        Verträge zwischen Felix Mauk, handelnd unter dem Namen FeMa Studio
+        (nachfolgend „Auftragnehmer"), und seinen Auftraggebern (nachfolgend „Auftraggeber")
+        über die Erbringung von Webdesign-, Webentwicklungs- und damit zusammenhängenden
+        Dienstleistungen.
+      </p>
+      <p>
+        (2) Abweichende, entgegenstehende oder ergänzende Allgemeine Geschäftsbedingungen des
+        Auftraggebers werden nicht Vertragsbestandteil, es sei denn, der Auftragnehmer stimmt
+        ihrer Geltung ausdrücklich und schriftlich zu.
+      </p>
+      <p>
+        (3) Diese AGB gelten sowohl gegenüber Unternehmern (§ 14 BGB) als auch gegenüber
+        Verbrauchern (§ 13 BGB).
+      </p>
+    </section>
+
+    <!-- §2 VERTRAGSSCHLUSS -->
+    <section id="vertragsschluss">
+      <h2>§ 2 Vertragsschluss</h2>
+      <p>
+        (1) Angebote des Auftragnehmers sind freibleibend und unverbindlich, sofern sie nicht
+        ausdrücklich als verbindlich bezeichnet sind. Ein Angebot gilt als angenommen, wenn der
+        Auftraggeber es innerhalb von 14 Kalendertagen schriftlich (per E-Mail genügt) bestätigt.
+      </p>
+      <p>
+        (2) Der Vertrag kommt durch die schriftliche Auftragsbestätigung des Auftragnehmers oder
+        durch den Beginn der Leistungserbringung nach Auftragserteilung zustande.
+      </p>
+      <p>
+        (3) Mündliche Nebenabreden bedürfen zu ihrer Wirksamkeit der schriftlichen Bestätigung
+        durch den Auftragnehmer.
+      </p>
+    </section>
+
+    <!-- §3 LEISTUNGSUMFANG -->
+    <section id="leistungen">
+      <h2>§ 3 Leistungsumfang</h2>
+      <p>
+        (1) Der genaue Leistungsumfang ergibt sich aus dem jeweils individuellen Angebot bzw.
+        der Auftragsbestätigung. Darin enthaltene Leistungsbeschreibungen sind maßgeblich für
+        den geschuldeten Erfolg.
+      </p>
+      <p>
+        (2) Leistungen des Auftragnehmers können umfassen:
+      </p>
+      <ul>
+        <li>Konzeption, Design und Entwicklung von Websites und Landingpages</li>
+        <li>Technische Einrichtung von Hosting, Domains und E-Mail-Konten (auf Wunsch)</li>
+        <li>Suchmaschinenoptimierung (SEO-Basis: Metadaten, Ladezeit, Struktur)</li>
+        <li>Einrichtung und Konfiguration von Drittanbieter-Diensten (z. B. Kontaktformulare)</li>
+        <li>Pflege- und Wartungsleistungen gemäß gesonderter Vereinbarung</li>
+      </ul>
+      <p>
+        (3) Änderungen oder Erweiterungen des vereinbarten Leistungsumfangs bedürfen einer
+        schriftlichen Ergänzungsvereinbarung und können zu einer Anpassung der Vergütung und
+        Lieferzeiten führen.
+      </p>
+      <p>
+        (4) Der Auftragnehmer ist berechtigt, Leistungen durch qualifizierte Dritte erbringen
+        zu lassen, sofern dies dem Auftraggeber gegenüber mitgeteilt wird und keine
+        schutzwürdigen Interessen des Auftraggebers entgegenstehen.
+      </p>
+    </section>
+
+    <!-- §4 VERGÜTUNG UND ZAHLUNG -->
+    <section id="vergütung">
+      <h2>§ 4 Vergütung und Zahlungsbedingungen</h2>
+      <p>
+        (1) Die Vergütung richtet sich nach dem individuellen Angebot. Alle Preise verstehen
+        sich als Nettopreise in Euro. Der Auftragnehmer unterliegt der Kleinunternehmerregelung
+        gemäß § 19 UStG; es wird daher keine Umsatzsteuer ausgewiesen.
+      </p>
+      <p>
+        (2) Zahlungsbedingungen:
+      </p>
+      <ul>
+        <li>
+          <strong>Anzahlung:</strong> Bei Vertragsschluss ist eine Anzahlung in Höhe von
+          <strong>30 % des Gesamtbetrages</strong> fällig. Mit Eingang der Anzahlung beginnt
+          die Bearbeitung des Auftrags.
+        </li>
+        <li>
+          <strong>Schlusszahlung:</strong> Die verbleibenden <strong>70 %</strong> sind
+          mit der Freigabe / Abnahme der fertigen Website fällig, spätestens jedoch
+          7 Kalendertage nach Übergabe der abnahmefähigen Leistung.
+        </li>
+      </ul>
+      <p>
+        (3) Rechnungen sind innerhalb von <strong>14 Kalendertagen</strong> ab
+        Rechnungsdatum ohne Abzug zahlbar. Bei Zahlungsverzug werden Verzugszinsen
+        in gesetzlicher Höhe (§ 288 BGB) berechnet.
+      </p>
+      <p>
+        (4) Aufmaß- oder Mengenangaben in Angeboten sind Schätzwerte. Weicht der tatsächliche
+        Aufwand um mehr als 20 % vom Angebot ab, informiert der Auftragnehmer den Auftraggeber
+        vorab und holt eine Freigabe ein.
+      </p>
+      <p>
+        (5) Reisekosten und sonstige Auslagen werden separat und zum Selbstkostenpreis
+        in Rechnung gestellt, sofern sie vorab vereinbart wurden.
+      </p>
+    </section>
+
+    <!-- §5 MITWIRKUNGSPFLICHTEN -->
+    <section id="mitwirkung">
+      <h2>§ 5 Mitwirkungspflichten des Auftraggebers</h2>
+      <p>
+        (1) Der Auftraggeber ist verpflichtet, alle für die Auftragserfüllung erforderlichen
+        Informationen, Materialien, Texte, Bilder und Zugangsdaten vollständig und rechtzeitig
+        zur Verfügung zu stellen.
+      </p>
+      <p>
+        (2) Der Auftraggeber hat auf Entwürfe und Freigabeanfragen des Auftragnehmers
+        innerhalb von <strong>7 Werktagen</strong> zu reagieren. Erfolgt keine Rückmeldung,
+        gilt dies als Freigabe des vorliegenden Entwurfs.
+      </p>
+      <p>
+        (3) Verzögerungen, die durch mangelnde Mitwirkung des Auftraggebers entstehen,
+        gehen nicht zu Lasten des Auftragnehmers und verlängern vereinbarte Lieferfristen
+        entsprechend.
+      </p>
+      <p>
+        (4) Der Auftraggeber ist für die Rechtmäßigkeit der von ihm bereitgestellten Inhalte
+        (Texte, Bilder, Logos, Marken) selbst verantwortlich. Er stellt den Auftragnehmer
+        von Ansprüchen Dritter frei, die aus der Verwendung dieser Inhalte entstehen.
+      </p>
+      <p>
+        (5) Der Auftraggeber ist verpflichtet, die Website nach deren Veröffentlichung auf
+        Richtigkeit der Inhalte (insbesondere Impressum, Datenschutz, Preisangaben)
+        zu prüfen und den Auftragnehmer auf Fehler hinzuweisen.
+      </p>
+    </section>
+
+    <!-- §6 LIEFERZEITEN -->
+    <section id="lieferzeiten">
+      <h2>§ 6 Lieferzeiten und Termine</h2>
+      <p>
+        (1) Lieferzeiten beginnen mit dem Eingang der vereinbarten Anzahlung und der
+        vollständigen Übergabe aller notwendigen Materialien durch den Auftraggeber.
+      </p>
+      <p>
+        (2) Angegebene Lieferzeiten sind Richtwerte und keine bindenden Zusagen, sofern
+        nichts anderes ausdrücklich vereinbart ist.
+      </p>
+      <p>
+        (3) Höhere Gewalt (z. B. technische Störungen, Krankheit, behördliche Maßnahmen)
+        verlängert die Lieferfrist um die Dauer des Hindernisses. Der Auftragnehmer
+        informiert den Auftraggeber unverzüglich.
+      </p>
+    </section>
+
+    <!-- §7 ABNAHME -->
+    <section id="abnahme">
+      <h2>§ 7 Abnahme</h2>
+      <p>
+        (1) Nach Fertigstellung der Leistung wird dem Auftraggeber eine Vorschau
+        (Staging-Link oder lokale Datei) zur Prüfung übergeben.
+      </p>
+      <p>
+        (2) Der Auftraggeber hat die Leistung innerhalb von <strong>14 Kalendertagen</strong>
+        nach Übergabe zu prüfen und Mängel schriftlich zu benennen. Werden innerhalb dieser
+        Frist keine Mängel gemeldet, gilt die Leistung als abgenommen.
+      </p>
+      <p>
+        (3) Unwesentliche Mängel, die die Nutzbarkeit der Website nicht erheblich
+        beeinträchtigen, berechtigen den Auftraggeber nicht zur Verweigerung der Abnahme.
+        Sie werden im Rahmen der Gewährleistung behoben.
+      </p>
+      <p>
+        (4) Nachträgliche Änderungswünsche, die über die vereinbarte Leistung hinausgehen,
+        gelten als neuer Auftrag und werden gesondert berechnet.
+      </p>
+    </section>
+
+    <!-- §8 URHEBERRECHT UND NUTZUNGSRECHTE -->
+    <section id="urheberrecht">
+      <h2>§ 8 Urheberrecht und Nutzungsrechte</h2>
+      <p>
+        (1) Alle vom Auftragnehmer erstellten Werke (Design, Code, Grafiken, Texte)
+        sind urheberrechtlich geschützt und bleiben geistiges Eigentum des Auftragnehmers,
+        soweit nachfolgend nichts anderes geregelt ist.
+      </p>
+      <p>
+        (2) Mit vollständiger Bezahlung der vereinbarten Vergütung räumt der Auftragnehmer
+        dem Auftraggeber ein <strong>einfaches, zeitlich und räumlich unbeschränktes
+        Nutzungsrecht</strong> an der erstellten Website für den vereinbarten Zweck ein.
+      </p>
+      <div class="hinweis">
+        <strong>Wichtig:</strong> Die Nutzungsrechte gehen erst mit vollständigem Zahlungseingang
+        auf den Auftraggeber über. Bis dahin ist eine Veröffentlichung oder kommerzielle Nutzung
+        nicht gestattet.
+      </div>
+      <p style="margin-top:0.75rem;">
+        (3) Die Weitergabe von Nutzungsrechten an Dritte bedarf der vorherigen schriftlichen
+        Zustimmung des Auftragnehmers.
+      </p>
+      <p>
+        (4) Der Auftragnehmer behält das Recht, die erstellte Website im Rahmen seiner
+        Portfolio- und Akquisetätigkeit zu benennen und zu zeigen, sofern der Auftraggeber
+        dem nicht ausdrücklich widerspricht.
+      </p>
+      <p>
+        (5) Drittanbieter-Komponenten (z. B. Schriftarten, Stock-Fotos, Open-Source-Bibliotheken)
+        unterliegen deren jeweiligen Lizenzbedingungen. Der Auftragnehmer informiert den
+        Auftraggeber über wesentliche Lizenzbedingungen, die den Auftraggeber betreffen.
+      </p>
+      <p>
+        (6) Der Auftraggeber trägt die Verantwortung dafür, dass die von ihm bereitgestellten
+        Inhalte keine Rechte Dritter (Urheberrecht, Markenrecht) verletzen.
+      </p>
+    </section>
+
+    <!-- §9 GEWÄHRLEISTUNG -->
+    <section id="gewaehrleistung">
+      <h2>§ 9 Gewährleistung</h2>
+      <p>
+        (1) Der Auftragnehmer gewährleistet, dass die erstellte Website zum Zeitpunkt
+        der Abnahme frei von wesentlichen Mängeln ist, die ihre Nutzbarkeit erheblich
+        beeinträchtigen.
+      </p>
+      <p>
+        (2) Die Gewährleistungsfrist beträgt <strong>12 Monate</strong> ab Abnahme.
+        Mängel sind schriftlich und so präzise wie möglich (mit Screenshot und Fehlerbeschreibung)
+        zu melden.
+      </p>
+      <p>
+        (3) Kein Gewährleistungsanspruch besteht für:
+      </p>
+      <ul>
+        <li>Fehler, die durch Eingriffe des Auftraggebers oder Dritter in den Code entstanden sind</li>
+        <li>Unverträglichkeiten mit zukünftigen Browser-, Betriebssystem- oder Plattform-Updates</li>
+        <li>Ausfälle oder Fehler beim Hosting-Anbieter oder bei Drittdiensten</li>
+        <li>Fehler in vom Auftraggeber bereitgestellten Inhalten oder Zugangsdaten</li>
+      </ul>
+      <p>
+        (4) Gewährleistungsarbeiten erfolgen durch Nachbesserung. Schlägt die Nachbesserung
+        zweimal fehl, kann der Auftraggeber eine angemessene Minderung des Kaufpreises verlangen.
+      </p>
+    </section>
+
+    <!-- §10 HAFTUNG -->
+    <section id="haftung">
+      <h2>§ 10 Haftungsbeschränkung</h2>
+      <p>
+        (1) Der Auftragnehmer haftet unbeschränkt für Schäden, die auf Vorsatz oder grober
+        Fahrlässigkeit beruhen, sowie für Schäden aus der Verletzung des Lebens, des Körpers
+        oder der Gesundheit.
+      </p>
+      <p>
+        (2) Bei leichter Fahrlässigkeit haftet der Auftragnehmer nur bei Verletzung einer
+        wesentlichen Vertragspflicht (Kardinalpflicht). In diesem Fall ist die Haftung der
+        Höhe nach begrenzt auf den typischen, vorhersehbaren Schaden, maximal jedoch auf den
+        <strong>Nettobetrag der jeweiligen Auftragsvergütung</strong>.
+      </p>
+      <p>
+        (3) Eine Haftung für entgangenen Gewinn, mittelbare Schäden oder Folgeschäden
+        (z. B. Umsatzverluste durch Website-Ausfälle) ist, soweit gesetzlich zulässig,
+        ausgeschlossen.
+      </p>
+      <p>
+        (4) Der Auftragnehmer übernimmt keine Haftung für die dauerhafte Verfügbarkeit
+        oder Sicherheit von Drittdiensten (Hosting, Formular-Dienste, DNS, CDN etc.).
+      </p>
+      <p>
+        (5) Für die Rechtmäßigkeit der Website-Inhalte (Impressum, Datenschutz, Preisangaben,
+        Texte) ist allein der Auftraggeber verantwortlich. Der Auftragnehmer erstellt auf
+        Wunsch Vorlagen, übernimmt jedoch keine Rechtsberatung und keine Haftung für
+        deren Vollständigkeit im Einzelfall.
+      </p>
+    </section>
+
+    <!-- §11 VERTRAULICHKEIT -->
+    <section id="vertraulichkeit">
+      <h2>§ 11 Vertraulichkeit und Datenschutz</h2>
+      <p>
+        (1) Beide Parteien verpflichten sich, vertrauliche Informationen der jeweils anderen
+        Partei (insbesondere Zugangsdaten, Geschäftsgeheimnisse, Kundendaten) nicht an Dritte
+        weiterzugeben und nur für die Erfüllung des Vertrages zu verwenden.
+      </p>
+      <p>
+        (2) Der Auftragnehmer verarbeitet personenbezogene Daten des Auftraggebers
+        ausschließlich zur Erfüllung des Vertrages und nach den Vorgaben der
+        Datenschutz-Grundverordnung (DSGVO). Näheres regelt die
+        <a href="datenschutz.html">Datenschutzerklärung</a>.
+      </p>
+      <p>
+        (3) Soweit der Auftragnehmer im Rahmen der Auftragserfüllung Zugriff auf
+        personenbezogene Daten des Auftraggebers oder seiner Kunden erhält
+        (z. B. über Hosting-Zugänge), ist auf Wunsch des Auftraggebers ein
+        Auftragsverarbeitungsvertrag (AVV) gemäß Art. 28 DSGVO abzuschließen.
+      </p>
+    </section>
+
+    <!-- §12 KÜNDIGUNG -->
+    <section id="kuendigung">
+      <h2>§ 12 Kündigung und vorzeitige Aufhebung</h2>
+      <p>
+        (1) Festpreisprojekte (Einmalauftrag) können vom Auftraggeber jederzeit schriftlich
+        gekündigt werden. In diesem Fall gilt:
+      </p>
+      <ul>
+        <li>Bereits geleistete Zahlungen (Anzahlung) verbleiben beim Auftragnehmer.</li>
+        <li>Für bereits erbrachte Leistungen wird auf Basis des tatsächlichen Aufwands
+            nach vereinbartem Stundensatz oder anteilig abgerechnet.</li>
+        <li>Dem Auftragnehmer steht bei schuldhafter Kündigung durch den Auftraggeber
+            ein pauschaler Schadensersatz in Höhe von 30 % des noch ausstehenden
+            Auftragswertes zu, sofern kein konkreter Schaden nachgewiesen wird.</li>
+      </ul>
+      <p>
+        (2) Laufende Wartungs- oder Pflegeverträge können von beiden Parteien mit einer
+        Frist von <strong>4 Wochen</strong> zum Monatsende schriftlich gekündigt werden.
+      </p>
+      <p>
+        (3) Das Recht zur außerordentlichen Kündigung aus wichtigem Grund bleibt unberührt.
+        Ein wichtiger Grund liegt für den Auftragnehmer insbesondere vor, wenn der
+        Auftraggeber trotz Mahnung mit Zahlungen in Verzug bleibt.
+      </p>
+    </section>
+
+    <hr />
+
+    <!-- §13 SCHLUSSBESTIMMUNGEN -->
+    <section id="schluss">
+      <h2>§ 13 Schlussbestimmungen</h2>
+      <p>
+        (1) <strong>Anwendbares Recht:</strong> Es gilt das Recht der Bundesrepublik Deutschland
+        unter Ausschluss des UN-Kaufrechts (CISG).
+      </p>
+      <p>
+        (2) <strong>Gerichtsstand:</strong> Für Streitigkeiten mit Unternehmern ist der
+        Gerichtsstand Neuruppin vereinbart. Für Verbraucher gilt der gesetzliche Gerichtsstand.
+      </p>
+      <p>
+        (3) <strong>Salvatorische Klausel:</strong> Sollten einzelne Bestimmungen dieser AGB
+        ganz oder teilweise unwirksam sein oder werden, berührt dies die Wirksamkeit der
+        übrigen Bestimmungen nicht. An die Stelle der unwirksamen Bestimmung tritt die
+        gesetzlich zulässige Regelung, die dem wirtschaftlichen Zweck am nächsten kommt.
+      </p>
+      <p>
+        (4) <strong>Schriftformerfordernis:</strong> Änderungen oder Ergänzungen dieser AGB
+        sowie des jeweiligen Vertrages bedürfen der Schriftform (E-Mail genügt).
+        Der Verzicht auf das Schriftformerfordernis bedarf ebenfalls der Schriftform.
+      </p>
+      <p>
+        (5) <strong>Vertragssprache:</strong> Vertragssprache ist Deutsch. Bei Übersetzungen
+        ist die deutsche Fassung maßgeblich.
+      </p>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="footer-legal">
+      <a href="impressum.html">Impressum</a>
+      <a href="datenschutz.html">Datenschutz</a>
+      <a href="agb.html" class="aktiv">AGB</a>
+      <a href="index.html">Zurück zur Website</a>
+    </div>
+    <p class="footer-copy">© 2026 FeMa Studio · Felix Mauk</p>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Datenschutz — FeMa Studio</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="preconnect" href="https://fonts.bunny.net" />
+  <link href="https://fonts.bunny.net/css?family=archivo:400,600,700,800&family=space-grotesk:400,500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:          #05050f;
+      --card:        rgba(15,15,30,0.9);
+      --text:        #f1f5f9;
+      --muted:       #64748b;
+      --muted-light: #94a3b8;
+      --border:      rgba(255,255,255,0.07);
+      --accent:      #6366f1;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
+      font-size: 0.95rem;
+      line-height: 1.75;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(5,5,15,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 1.5rem;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      font-family: 'Archivo', sans-serif;
+      font-weight: 800;
+      font-size: 1rem;
+      background: linear-gradient(90deg, #6366f1, #a855f7);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-decoration: none;
+    }
+
+    .nav-back {
+      color: var(--muted-light);
+      text-decoration: none;
+      font-size: 0.82rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: color 0.2s;
+    }
+    .nav-back:hover { color: var(--text); }
+
+    main {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 4rem 1.5rem 5rem;
+    }
+
+    .page-title {
+      font-family: 'Archivo', sans-serif;
+      font-size: clamp(1.8rem, 5vw, 2.6rem);
+      font-weight: 800;
+      color: var(--text);
+      margin-bottom: 0.4rem;
+    }
+
+    .page-meta {
+      color: var(--muted);
+      font-size: 0.78rem;
+      margin-bottom: 3rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    section {
+      margin-bottom: 2.5rem;
+    }
+
+    section h2 {
+      font-family: 'Archivo', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 0.75rem;
+    }
+
+    section p {
+      color: var(--muted-light);
+      line-height: 1.8;
+      margin-bottom: 0.6rem;
+    }
+
+    section ul {
+      color: var(--muted-light);
+      padding-left: 1.25rem;
+      line-height: 1.9;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .toc {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 3rem;
+    }
+
+    .toc h3 {
+      font-family: 'Archivo', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.75rem;
+    }
+
+    .toc ol {
+      padding-left: 1.2rem;
+      color: var(--muted-light);
+      font-size: 0.85rem;
+      line-height: 2;
+    }
+
+    .toc a { color: var(--muted-light); }
+    .toc a:hover { color: var(--text); }
+
+    hr {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 3rem 0;
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem 1.5rem;
+      text-align: center;
+    }
+
+    .footer-legal {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-legal a {
+      color: var(--muted);
+      font-size: 0.8rem;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-legal a:hover { color: var(--text); }
+    .footer-legal a.aktiv { color: var(--muted-light); }
+
+    .footer-copy {
+      color: var(--muted);
+      font-size: 0.78rem;
+      margin-top: 0.75rem;
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-logo">FeMa Studio</a>
+    <a href="index.html" class="nav-back">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 19"/>
+      </svg>
+      Zurück zur Website
+    </a>
+  </nav>
+
+  <main>
+
+    <h1 class="page-title">Datenschutzerklärung</h1>
+    <p class="page-meta">Stand: Mai 2026 · Gemäß DSGVO, BDSG und DDG</p>
+
+    <!-- INHALTSVERZEICHNIS -->
+    <div class="toc">
+      <h3>Inhalt</h3>
+      <ol>
+        <li><a href="#verantwortlicher">Verantwortlicher</a></li>
+        <li><a href="#rechtsgrundlagen">Rechtsgrundlagen der Verarbeitung</a></li>
+        <li><a href="#hosting">Hosting (Vercel)</a></li>
+        <li><a href="#server-logs">Server-Logfiles</a></li>
+        <li><a href="#schriftarten">Schriftarten (Bunny Fonts)</a></li>
+        <li><a href="#whatsapp">WhatsApp-Button</a></li>
+        <li><a href="#kontakt">Kontaktaufnahme per E-Mail / Telefon</a></li>
+        <li><a href="#cookies">Cookies</a></li>
+        <li><a href="#rechte">Ihre Rechte als betroffene Person</a></li>
+        <li><a href="#beschwerderecht">Beschwerderecht bei der Aufsichtsbehörde</a></li>
+      </ol>
+    </div>
+
+    <!-- 1 VERANTWORTLICHER -->
+    <section id="verantwortlicher">
+      <h2>1. Verantwortlicher</h2>
+      <p>
+        Verantwortlicher im Sinne der DSGVO für die Verarbeitung personenbezogener Daten auf dieser Website ist:
+      </p>
+      <p>
+        Felix Mauk · FeMa Studio<br />
+        Darritzer Weg 10, 16818 Märkisch Linden<br />
+        E-Mail: <a href="mailto:hello@fema-studio.de">hello@fema-studio.de</a><br />
+        Telefon: <a href="tel:+4915906463241">0159 0646 3241</a>
+      </p>
+    </section>
+
+    <!-- 2 RECHTSGRUNDLAGEN -->
+    <section id="rechtsgrundlagen">
+      <h2>2. Rechtsgrundlagen der Verarbeitung</h2>
+      <p>
+        Für die auf dieser Website stattfindenden Datenverarbeitungen stütze ich mich auf folgende
+        Rechtsgrundlagen der DSGVO:
+      </p>
+      <ul>
+        <li><strong>Art. 6 Abs. 1 lit. a DSGVO</strong> — Einwilligung der betroffenen Person</li>
+        <li><strong>Art. 6 Abs. 1 lit. b DSGVO</strong> — Vertragserfüllung oder vorvertragliche Maßnahmen</li>
+        <li><strong>Art. 6 Abs. 1 lit. f DSGVO</strong> — Berechtigte Interessen des Verantwortlichen</li>
+      </ul>
+    </section>
+
+    <!-- 3 HOSTING -->
+    <section id="hosting">
+      <h2>3. Hosting (Vercel)</h2>
+      <p>
+        Diese Website wird gehostet bei der Vercel Inc., 440 N Barranca Ave #4133, Covina,
+        CA 91723, USA. Vercel verarbeitet dabei technisch notwendige Daten (insbesondere IP-Adressen
+        und Verbindungsdaten) für die Auslieferung der Website-Inhalte.
+      </p>
+      <p>
+        Vercel ist nach dem <strong>EU-U.S. Data Privacy Framework</strong> zertifiziert und verarbeitet
+        Daten auf Grundlage von Standardvertragsklauseln (SCC) gemäß Art. 46 Abs. 2 lit. c DSGVO.
+        Rechtsgrundlage für die Nutzung von Vercel ist Art. 6 Abs. 1 lit. f DSGVO (berechtigtes
+        Interesse an einem zuverlässigen und sicheren Website-Betrieb).
+      </p>
+      <p>
+        Datenschutzinformationen von Vercel:
+        <a href="https://vercel.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer">
+          vercel.com/legal/privacy-policy
+        </a>
+      </p>
+    </section>
+
+    <!-- 4 SERVER-LOGS -->
+    <section id="server-logs">
+      <h2>4. Server-Logfiles</h2>
+      <p>
+        Der Hosting-Anbieter erhebt und speichert beim Aufruf dieser Website automatisch Informationen
+        in sogenannten Server-Logfiles. Diese umfassen:
+      </p>
+      <ul>
+        <li>IP-Adresse des anfragenden Geräts (anonymisiert nach kurzer Zeit)</li>
+        <li>Datum und Uhrzeit des Abrufs</li>
+        <li>Name und URL der abgerufenen Datei</li>
+        <li>Übertragene Datenmenge</li>
+        <li>Meldung über erfolgreichen Abruf</li>
+        <li>Browsertyp und -version sowie Betriebssystem</li>
+        <li>Referrer-URL (die zuvor besuchte Seite)</li>
+      </ul>
+      <p>
+        Die Verarbeitung erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO. Mein berechtigtes
+        Interesse liegt im störungsfreien Betrieb sowie der Sicherheit der Website. Die Daten werden
+        nicht mit anderen Datenquellen zusammengeführt und nach spätestens 7 Tagen gelöscht.
+      </p>
+    </section>
+
+    <!-- 5 SCHRIFTARTEN -->
+    <section id="schriftarten">
+      <h2>5. Schriftarten (Bunny Fonts)</h2>
+      <p>
+        Diese Website verwendet Web-Schriftarten des Dienstes <strong>Bunny Fonts</strong>, betrieben
+        von BunnyWay d.o.o., Cesta komandanta Staneta 4A, 1215 Medvode, Slowenien.
+        Bunny Fonts ist ein datenschutzfreundlicher Anbieter mit Serverstandorten ausschließlich
+        in der Europäischen Union.
+      </p>
+      <p>
+        Beim Laden der Schriftarten wird eine Verbindung zu Bunny-Fonts-Servern hergestellt.
+        Dabei können technisch notwendige Informationen (z. B. IP-Adresse) übertragen werden.
+        Eine Speicherung oder Weitergabe dieser Daten an Dritte findet nicht statt.
+        Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO.
+      </p>
+      <p>
+        Datenschutzinformationen von Bunny Fonts:
+        <a href="https://fonts.bunny.net/about" target="_blank" rel="noopener noreferrer">
+          fonts.bunny.net/about
+        </a>
+      </p>
+    </section>
+
+    <!-- 6 WHATSAPP -->
+    <section id="whatsapp">
+      <h2>6. WhatsApp-Button</h2>
+      <p>
+        Auf dieser Website ist ein Button eingebunden, der einen Link zu WhatsApp
+        (Meta Platforms Ireland Limited, 4 Grand Canal Square, Dublin 2, Irland) öffnet.
+        Ein Klick auf den Button leitet Sie zu WhatsApp weiter. Die Website selbst überträgt
+        dabei keine personenbezogenen Daten an WhatsApp. Erst nach Ihrem Klick und dem
+        Öffnen von WhatsApp gelten die Datenschutzbestimmungen von Meta / WhatsApp.
+      </p>
+      <p>
+        Datenschutzinformationen von WhatsApp:
+        <a href="https://www.whatsapp.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer">
+          whatsapp.com/legal/privacy-policy
+        </a>
+      </p>
+    </section>
+
+    <!-- 7 KONTAKT -->
+    <section id="kontakt">
+      <h2>7. Kontaktaufnahme per E-Mail oder Telefon</h2>
+      <p>
+        Wenn Sie mich per E-Mail oder Telefon kontaktieren, werden die von Ihnen übermittelten
+        Daten (z. B. Name, E-Mail-Adresse, Telefonnummer, Nachrichteninhalt) zur Bearbeitung
+        Ihrer Anfrage bei mir gespeichert.
+      </p>
+      <p>
+        Diese Daten werden nicht ohne Ihre Einwilligung an Dritte weitergegeben. Die Verarbeitung
+        erfolgt auf Grundlage von Art. 6 Abs. 1 lit. b DSGVO (Vertragserfüllung oder
+        vorvertragliche Maßnahmen) bzw. Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse
+        an der Bearbeitung von Anfragen). Die Daten werden gelöscht, sobald sie für die
+        Erreichung des Zwecks nicht mehr erforderlich sind, spätestens nach Ablauf gesetzlicher
+        Aufbewahrungsfristen.
+      </p>
+    </section>
+
+    <!-- 8 COOKIES -->
+    <section id="cookies">
+      <h2>8. Cookies</h2>
+      <p>
+        Diese Website setzt <strong>keine Tracking- oder Analyse-Cookies</strong>.
+        Es werden lediglich technisch notwendige Verbindungsdaten verarbeitet, die für den
+        Betrieb der Website unerlässlich sind. Eine Einwilligung ist hierfür nicht erforderlich
+        (Art. 6 Abs. 1 lit. f DSGVO).
+      </p>
+    </section>
+
+    <hr />
+
+    <!-- 9 RECHTE -->
+    <section id="rechte">
+      <h2>9. Ihre Rechte als betroffene Person</h2>
+      <p>Sie haben gegenüber mir folgende Rechte hinsichtlich der Sie betreffenden personenbezogenen Daten:</p>
+      <ul>
+        <li><strong>Auskunftsrecht</strong> (Art. 15 DSGVO): Sie haben das Recht zu erfahren, ob und welche Daten ich von Ihnen verarbeite.</li>
+        <li><strong>Recht auf Berichtigung</strong> (Art. 16 DSGVO): Unrichtige Daten können Sie berichtigen lassen.</li>
+        <li><strong>Recht auf Löschung</strong> (Art. 17 DSGVO): Sie können die Löschung Ihrer Daten verlangen, soweit keine gesetzlichen Aufbewahrungspflichten entgegenstehen.</li>
+        <li><strong>Recht auf Einschränkung der Verarbeitung</strong> (Art. 18 DSGVO).</li>
+        <li><strong>Recht auf Datenübertragbarkeit</strong> (Art. 20 DSGVO).</li>
+        <li><strong>Widerspruchsrecht</strong> (Art. 21 DSGVO): Sie können der Verarbeitung Ihrer Daten widersprechen, sofern diese auf Art. 6 Abs. 1 lit. f DSGVO basiert.</li>
+        <li><strong>Recht auf Widerruf einer Einwilligung</strong> (Art. 7 Abs. 3 DSGVO): Eine erteilte Einwilligung kann jederzeit mit Wirkung für die Zukunft widerrufen werden.</li>
+      </ul>
+      <p>
+        Zur Ausübung Ihrer Rechte wenden Sie sich bitte per E-Mail an:
+        <a href="mailto:hello@fema-studio.de">hello@fema-studio.de</a>
+      </p>
+    </section>
+
+    <!-- 10 BESCHWERDERECHT -->
+    <section id="beschwerderecht">
+      <h2>10. Beschwerderecht bei der Aufsichtsbehörde</h2>
+      <p>
+        Sie haben das Recht, sich bei einer Datenschutz-Aufsichtsbehörde über die Verarbeitung
+        Ihrer personenbezogenen Daten zu beschweren. Zuständige Aufsichtsbehörde für Brandenburg:
+      </p>
+      <p>
+        <strong>Die Landesbeauftragte für den Datenschutz und für das Recht auf Akteneinsicht Brandenburg (LDA)</strong><br />
+        Stahnsdorfer Damm 77, 14532 Kleinmachnow<br />
+        <a href="https://www.lda.brandenburg.de" target="_blank" rel="noopener noreferrer">www.lda.brandenburg.de</a>
+      </p>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="footer-legal">
+      <a href="impressum.html">Impressum</a>
+      <a href="datenschutz.html" class="aktiv">Datenschutz</a>
+      <a href="agb.html">AGB</a>
+      <a href="index.html">Zurück zur Website</a>
+    </div>
+    <p class="footer-copy">© 2026 FeMa Studio · Felix Mauk</p>
+  </footer>
+
+</body>
+</html>
