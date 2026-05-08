@@ -788,6 +788,8 @@
       display: none; /* old mobile menu removed */
     }
 
+    .masarbeit-ref-mobile { display: none; }
+
     @media (max-width: 640px) {
       /* Nav */
       #mainNav { top: 0.5rem; left: 0.5rem; right: 0.5rem; }
@@ -822,6 +824,8 @@
         justify-content: center;
         display: flex !important;
       }
+      .masarbeit-ref-inline { display: none; }
+      .masarbeit-ref-mobile { display: block; }
 
       /* 4. WhatsApp-Button */
       .wa-float {
@@ -1500,7 +1504,7 @@
             <span class="preise-badge" style="background: linear-gradient(135deg, #f59e0b, #d97706);">Maßarbeit</span>
             <p class="preise-name">Individuell</p>
             <p class="preise-price" style="font-size: 1.8rem; padding-top: 0.25rem;">Auf Anfrage</p>
-            <p class="preise-desc" style="margin-bottom: 0; margin-top: 0.5rem;">Für Projekte die über ein Standard-Paket hinausgehen — komplex, einzigartig, maßgeschneidert. <a href="https://mirash-barbershop.vercel.app" target="_blank" rel="noopener noreferrer" style="color: var(--indigo); text-decoration: none; white-space: nowrap;">Referenz: Mirash Barbershop →</a></p>
+            <p class="preise-desc" style="margin-bottom: 0; margin-top: 0.5rem;">Für Projekte die über ein Standard-Paket hinausgehen — komplex, einzigartig, maßgeschneidert. <a class="masarbeit-ref-inline" href="https://mirash-barbershop.vercel.app" target="_blank" rel="noopener noreferrer" style="color: var(--indigo); text-decoration: none; white-space: nowrap;">Referenz: Mirash Barbershop →</a></p>
           </div>
           <ul class="preise-features" style="margin-bottom: 0; grid-template-columns: 1fr 1fr; display: grid; gap: 0.65rem;">
             <li class="hl"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Next.js / React Technologie</li>
@@ -1508,6 +1512,7 @@
             <li class="hl"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Animationen &amp; Interaktionen</li>
             <li><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Galerie, Bewertungen, Buchung</li>
           </ul>
+          <a class="masarbeit-ref-mobile" href="https://mirash-barbershop.vercel.app" target="_blank" rel="noopener noreferrer" style="color: var(--indigo); text-decoration: none; font-size: 0.82rem; white-space: nowrap;">Referenz: Mirash Barbershop →</a>
           <a href="https://wa.me/4915906463241?text=Hallo%20Felix%2C%20ich%20hätte%20Interesse%20an%20einem%20individuellen%20Projekt." target="_blank" rel="noopener noreferrer" class="btn-gold">Jetzt anfragen</a>
         </div>
 
