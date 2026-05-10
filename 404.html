@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Seite nicht gefunden – FeMa Studio</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+  <link rel="icon" href="favicon.ico" sizes="32x32" />
+  <link rel="preconnect" href="https://fonts.bunny.net" />
+  <link href="https://fonts.bunny.net/css?family=archivo:400,600,700,900|space-grotesk:400,500,600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --indigo: #6366f1;
+      --violet: #a855f7;
+      --bg: #05050f;
+      --text: #f1f5f9;
+      --muted: #64748b;
+      --muted-light: #94a3b8;
+      --border: rgba(255,255,255,0.07);
+    }
+
+    html { height: 100%; }
+
+    body {
+      font-family: 'Space Grotesk', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 50% at 30% 40%, rgba(99,102,241,0.12) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 40% at 75% 65%, rgba(168,85,247,0.08) 0%, transparent 55%);
+      pointer-events: none;
+    }
+
+    .content {
+      position: relative;
+      text-align: center;
+      max-width: 480px;
+    }
+
+    .code {
+      font-family: 'Archivo', sans-serif;
+      font-size: clamp(5rem, 20vw, 8rem);
+      font-weight: 900;
+      line-height: 1;
+      letter-spacing: -0.04em;
+      background: linear-gradient(135deg, #6366f1 0%, #a855f7 50%, #06b6d4 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 1.5rem;
+    }
+
+    h1 {
+      font-family: 'Archivo', sans-serif;
+      font-size: clamp(1.4rem, 4vw, 1.9rem);
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 0.75rem;
+      letter-spacing: -0.02em;
+    }
+
+    p {
+      font-size: 1rem;
+      color: var(--muted-light);
+      line-height: 1.7;
+      margin-bottom: 2.5rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: linear-gradient(135deg, #6366f1, #a855f7);
+      color: #fff;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      padding: 0.85rem 2rem;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: opacity 0.2s, box-shadow 0.2s;
+    }
+    .btn:hover {
+      opacity: 0.88;
+      box-shadow: 0 4px 24px rgba(99,102,241,0.35);
+    }
+
+    .brand {
+      margin-top: 3.5rem;
+      font-family: 'Archivo', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+      color: var(--muted);
+    }
+    .brand span {
+      background: linear-gradient(90deg, #818cf8, #a78bfa);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+  </style>
+</head>
+<body>
+  <div class="content">
+    <div class="code">404</div>
+    <h1>Diese Seite existiert nicht.</h1>
+    <p>Die aufgerufene URL ist nicht vorhanden oder wurde verschoben. Kein Problem — einfach zurück zur Startseite.</p>
+    <a href="/" class="btn">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+      Zurück zur Startseite
+    </a>
+    <div class="brand"><span>FeMa</span> Studio</div>
+  </div>
+</body>
+</html>
