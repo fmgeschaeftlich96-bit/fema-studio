@@ -804,7 +804,12 @@
       .hero h1 { font-size: clamp(1.85rem, 9.2vw, 2.6rem); line-height: 1.08; margin-bottom: 1.1rem; }
       .hero-sub { font-size: 0.88rem; line-height: 1.7; max-width: 300px; text-shadow: 0 1px 6px rgba(0,0,0,0.55); }
       .hero-sub::before { background: radial-gradient(ellipse at center, rgba(5,5,15,0.62) 0%, transparent 68%); }
-      .hero { padding: 7rem 1.25rem 4rem; min-height: 100svh; background-position: 50% 55%; }
+      .hero { padding: 7rem 1.25rem 4rem; min-height: 100svh; background-position: 28% 55%; }
+      .hero::before {
+        background:
+          linear-gradient(to bottom, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.42) 45%, rgba(0,0,0,0.78) 100%),
+          radial-gradient(ellipse 100% 60% at 40% 50%, rgba(99,102,241,0.14) 0%, transparent 65%);
+      }
 
       /* 2. Section-Abstände */
       section { padding: 3.5rem 1.25rem; }
