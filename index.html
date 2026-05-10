@@ -790,6 +790,7 @@
     }
 
     .masarbeit-ref-mobile { display: none; }
+    .mobile-br { display: none; }
 
     @media (max-width: 640px) {
       /* Nav */
@@ -799,6 +800,7 @@
       .nav-burger { display: flex; }
 
       /* 1. Hero-Schriftgröße */
+      .mobile-br { display: inline; }
       .hero h1 { font-size: clamp(1.85rem, 9.2vw, 2.6rem); line-height: 1.08; margin-bottom: 1.1rem; }
       .hero-sub { font-size: 0.88rem; line-height: 1.7; max-width: 300px; text-shadow: 0 1px 6px rgba(0,0,0,0.55); }
       .hero-sub::before { background: radial-gradient(ellipse at center, rgba(5,5,15,0.62) 0%, transparent 68%); }
@@ -1194,7 +1196,7 @@
       Webdesign · Neuruppin & Umgebung
     </div>
     <h1>
-      <span class="line1">Websites, die Vertrauen schaffen</span>
+      <span class="line1">Websites, die<br class="mobile-br" /> Vertrauen schaffen</span>
       <span class="line2">und Kunden gewinnen.</span>
     </h1>
     <p class="hero-sub">Ich erstelle moderne Websites für Unternehmen in Neuruppin &amp; Umgebung, die Vertrauen schaffen und neue Kunden gewinnen. Schnell, unkompliziert und auf den Punkt. Direkt vom Designer, ohne Agentur dazwischen.</p>
