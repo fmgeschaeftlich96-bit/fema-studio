@@ -14,14 +14,14 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="FeMa Studio – Webdesign für lokale Unternehmen" />
   <meta name="twitter:description" content="Websites für Betriebe in der Region. Direkt, unkompliziert, ohne Agentur-Aufwand. Neuruppin & Umgebung." />
-  <meta name="twitter:image" content="https://fema-studio.de/hero-1.jpg" />
+  <meta name="twitter:image" content="https://fema-studio.de/hero-bg.jpg" />
 
   <!-- Open Graph (WhatsApp, Instagram, Facebook Vorschau) -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://fema-studio.de" />
   <meta property="og:title" content="FeMa Studio – Webdesign für lokale Unternehmen" />
   <meta property="og:description" content="Websites für Betriebe in der Region. Direkt, unkompliziert, ohne Agentur-Aufwand. Neuruppin & Umgebung." />
-  <meta property="og:image" content="https://fema-studio.de/hero-1.jpg" />
+  <meta property="og:image" content="https://fema-studio.de/hero-bg.jpg" />
   <meta property="og:locale" content="de_DE" />
   <meta property="og:site_name" content="FeMa Studio" />
 
@@ -39,7 +39,7 @@
         "telephone": "+4915906463241",
         "email": "hello@fema-studio.de",
         "priceRange": "€€",
-        "image": "https://fema-studio.de/hero-1.jpg",
+        "image": "https://fema-studio.de/hero-bg.jpg",
         "address": {
           "@type": "PostalAddress",
           "addressLocality": "Neuruppin",
@@ -94,6 +94,7 @@
   }
   </script>
 
+  <link rel="preload" as="image" href="hero-bg.jpg" />
   <link rel="preconnect" href="https://fonts.bunny.net" />
   <link href="https://fonts.bunny.net/css?family=archivo:300,400,500,600,700,800,900|space-grotesk:300,400,500,600,700&display=swap" rel="stylesheet" />
   <style>
@@ -1645,7 +1646,7 @@
               <div class="browser-url">mirash-barbershop.vercel.app</div>
             </div>
             <div class="browser-body">
-              <img src="mirash-preview.png" class="browser-preview-img" alt="Mirash Barbershop Website" />
+              <img src="mirash-preview.png" class="browser-preview-img" alt="Mirash Barbershop Website" loading="lazy" />
             </div>
           </div>
         </div>
@@ -1688,7 +1689,7 @@
       </div>
       <div class="kontakt-wrap">
         <div class="kontakt-card reveal">
-          <div class="kontakt-avatar"><img src="felix.jpg" alt="Felix Mauk" /></div>
+          <div class="kontakt-avatar"><img src="felix.jpg" alt="Felix Mauk" loading="lazy" /></div>
           <div class="kontakt-name">Felix Mauk</div>
           <div class="kontakt-role">FeMa Studio · Webdesigner · Neuruppin & Umgebung</div>
           <div class="kontakt-links">
@@ -1851,7 +1852,9 @@
         clearTimeout(resizeTimer);
         resizeTimer = setTimeout(() => resize(false), 150);
       });
-      animate();
+      if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        animate();
+      }
     })();
   </script>
 
