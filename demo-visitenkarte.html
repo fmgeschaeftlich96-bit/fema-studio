@@ -3,8 +3,16 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Malerbetrieb Berger — Ihr Maler in Neuruppin</title>
+  <title>Malerbetrieb Berger – Ihr Maler in Neuruppin</title>
   <meta name="robots" content="noindex, nofollow" />
+  <meta name="description" content="Malerbetrieb Berger – Ihr Malermeister in Neuruppin. Innenraumgestaltung, Fassadenarbeiten und Tapezierarbeiten. Zuverlässig, pünktlich und sauber." />
+  <link rel="canonical" href="https://fema-studio.de/demo-visitenkarte" />
+  <meta property="og:title" content="Malerbetrieb Berger – Ihr Maler in Neuruppin" />
+  <meta property="og:description" content="Innenraumgestaltung, Fassadenarbeiten und Tapezieren für Privatkunden und Gewerbe. Zuverlässig, pünktlich und sauber ausgeführt." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://fema-studio.de/demo-visitenkarte" />
+  <link rel="preload" href="maler-hero-demo.jpg" as="image" media="(min-width: 781px)" />
+  <link rel="preload" href="maler-hero-demo-mobile.jpg" as="image" media="(max-width: 780px)" />
   <link rel="preconnect" href="https://fonts.bunny.net" />
   <link href="https://fonts.bunny.net/css?family=lora:400,400i,600,700&family=dm-sans:400,500,600&display=swap" rel="stylesheet" />
   <style>
@@ -24,7 +32,7 @@
       --white:        #ffffff;
     }
 
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; scroll-padding-top: 90px; }
 
     body {
       font-family: 'DM Sans', sans-serif;
@@ -60,8 +68,8 @@
       top: 0;
       z-index: 100;
       background: rgba(247,243,238,0.96);
-      backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px);
+      backdrop-filter: blur(10px);
       border-bottom: 1px solid var(--border);
       padding: 0 1.5rem;
       height: 62px;
@@ -107,31 +115,19 @@
 
     /* ─── HERO ─── */
     .hero {
-      background: var(--navy);
+      background-color: var(--navy);
+      background-image:
+        linear-gradient(to right, rgba(14,25,42,0.93) 0%, rgba(14,25,42,0.76) 48%, rgba(14,25,42,0.40) 100%),
+        url('maler-hero-demo.jpg');
+      background-size: cover;
+      background-position: right 18%;
+      background-repeat: no-repeat;
       position: relative;
       overflow: hidden;
-      padding: 6.5rem 1.5rem 5.5rem;
-      min-height: 540px;
+      padding: 5rem 1.5rem 5rem;
+      min-height: 640px;
       display: flex;
       align-items: center;
-    }
-
-    .hero-dots {
-      position: absolute;
-      inset: 0;
-      background-image: radial-gradient(circle, rgba(255,255,255,0.055) 1px, transparent 1px);
-      background-size: 30px 30px;
-      pointer-events: none;
-    }
-
-    .hero-glow {
-      position: absolute;
-      bottom: -100px;
-      right: -100px;
-      width: 500px;
-      height: 500px;
-      background: radial-gradient(circle, rgba(192,122,10,0.14) 0%, transparent 68%);
-      pointer-events: none;
     }
 
     .hero-inner {
@@ -168,6 +164,7 @@
       line-height: 1.1;
       letter-spacing: -0.02em;
       margin-bottom: 1.35rem;
+      text-shadow: 0 1px 6px rgba(0,0,0,0.22);
     }
     .hero h1 em {
       font-style: italic;
@@ -175,11 +172,18 @@
     }
 
     .hero-sub {
-      font-size: 1rem;
-      color: rgba(255,255,255,0.62);
-      max-width: 430px;
+      font-size: 1.02rem;
+      color: rgba(255,255,255,0.80);
+      max-width: 440px;
       line-height: 1.72;
-      margin-bottom: 2.5rem;
+      margin-bottom: 0.9rem;
+    }
+
+    .hero-meta {
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.48);
+      margin-bottom: 2rem;
+      letter-spacing: 0.01em;
     }
 
     .hero-btns {
@@ -254,14 +258,14 @@
       color: var(--navy);
       line-height: 1.18;
       letter-spacing: -0.02em;
-      margin-bottom: 0.7rem;
+      margin-bottom: 0.9rem;
     }
 
     .sec-sub {
-      font-size: 0.95rem;
+      font-size: 1rem;
       color: var(--muted);
-      max-width: 480px;
-      line-height: 1.72;
+      max-width: 500px;
+      line-height: 1.75;
     }
 
     /* ─── LEISTUNGEN ─── */
@@ -271,24 +275,25 @@
       border-bottom: 1px solid var(--border);
     }
 
-    .leistungen-header { margin-bottom: 2.75rem; }
+    .leistungen-header { margin-bottom: 3rem; }
 
     .leistungen-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 1.1rem;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.2rem;
     }
 
     .leistung {
       background: var(--bg);
       border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 1.6rem 1.5rem;
-      transition: border-color 0.25s, transform 0.2s;
+      border-radius: 12px;
+      padding: 1.75rem 1.65rem;
+      transition: border-color 0.25s, box-shadow 0.25s, transform 0.2s;
       cursor: default;
     }
     .leistung:hover {
-      border-color: rgba(192,122,10,0.38);
+      border-color: rgba(192,122,10,0.4);
+      box-shadow: 0 4px 18px rgba(26,45,74,0.07);
       transform: translateY(-2px);
     }
 
@@ -307,19 +312,22 @@
 
     .leistung h3 {
       font-family: 'Lora', serif;
-      font-size: 0.98rem;
+      font-size: 1rem;
       font-weight: 600;
       color: var(--navy);
-      margin-bottom: 0.4rem;
+      margin-bottom: 0.5rem;
     }
     .leistung p {
-      font-size: 0.87rem;
+      font-size: 0.9rem;
       color: var(--muted);
-      line-height: 1.65;
+      line-height: 1.68;
     }
 
     /* ─── ÜBER MICH ─── */
-    #ueber { background: var(--bg); }
+    #ueber {
+      background: var(--bg);
+      border-top: 1px solid var(--border);
+    }
 
     .ueber-grid {
       display: grid;
@@ -362,23 +370,23 @@
     }
 
     .ueber-text {
-      font-size: 0.95rem;
+      font-size: 1rem;
       color: var(--muted);
-      line-height: 1.78;
+      line-height: 1.8;
       margin-top: 1.1rem;
     }
 
     .ueber-stats {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0.85rem;
-      margin-top: 2rem;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.9rem;
+      margin-top: 2.25rem;
     }
     .stat {
       background: var(--white);
       border: 1px solid var(--border);
-      border-radius: 9px;
-      padding: 1rem 1.1rem;
+      border-radius: 10px;
+      padding: 1.1rem 1.15rem;
     }
     .stat-num {
       font-family: 'Lora', serif;
@@ -388,10 +396,10 @@
       line-height: 1.1;
     }
     .stat-label {
-      font-size: 0.75rem;
+      font-size: 0.76rem;
       color: var(--muted);
-      margin-top: 0.2rem;
-      line-height: 1.4;
+      margin-top: 0.25rem;
+      line-height: 1.45;
     }
 
     /* ─── EINSATZGEBIET ─── */
@@ -411,8 +419,6 @@
       flex-wrap: wrap;
       margin-top: 2.25rem;
     }
-
-    .gebiet-text { flex: 1; min-width: 200px; }
 
     .gebiet-tags {
       flex: 1.2;
@@ -451,17 +457,18 @@
 
     .kontakt-card {
       background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.09);
-      border-radius: 10px;
-      padding: 1.6rem 1.5rem;
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 12px;
+      padding: 1.75rem 1.65rem;
       text-decoration: none;
       color: var(--white);
-      transition: background 0.2s, border-color 0.2s;
+      transition: background 0.2s, border-color 0.2s, box-shadow 0.2s;
       display: block;
     }
     .kontakt-card:hover {
       background: rgba(255,255,255,0.09);
-      border-color: rgba(192,122,10,0.5);
+      border-color: rgba(192,122,10,0.55);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
     }
 
     .kc-icon {
@@ -486,7 +493,7 @@
     }
 
     .kc-value {
-      font-size: 1rem;
+      font-size: 1.02rem;
       font-weight: 600;
       color: var(--white);
     }
@@ -506,6 +513,11 @@
       transition: color 0.2s;
     }
     footer a:hover { color: var(--white); }
+
+    .footer-link-disabled {
+      cursor: default;
+      opacity: 0.5;
+    }
 
     .footer-demo {
       display: inline-block;
@@ -555,24 +567,43 @@
 
     /* ─── RESPONSIVE ─── */
     @media (max-width: 780px) {
-      .ueber-grid { grid-template-columns: 1fr; gap: 2.25rem; }
+      .ueber-grid { grid-template-columns: 1fr; gap: 2rem; }
       .ueber-visual { display: none; }
-      .hero { padding: 4.5rem 1.25rem 4rem; min-height: auto; }
-      section { padding: 3.75rem 1.25rem; }
-      #gebiet { padding: 3rem 1.25rem; }
+      .hero {
+        padding: 4rem 1.25rem 3.5rem;
+        min-height: 0;
+        background-image:
+          linear-gradient(to bottom, rgba(14,25,42,0.88) 0%, rgba(14,25,42,0.80) 100%),
+          url('maler-hero-demo-mobile.jpg');
+        background-position: 72% 15%;
+      }
+      section { padding: 3.5rem 1.25rem; }
+      #kontakt { padding: 3.5rem 1.25rem; }
+      #gebiet { padding: 2.75rem 1.25rem; }
+      .leistungen-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 540px) {
+      .leistungen-grid { grid-template-columns: 1fr; }
     }
 
     @media (max-width: 480px) {
-      .hero h1 { font-size: 2.05rem; }
+      .hero { padding: 3rem 1.25rem 2.75rem; }
+      .hero h1 { font-size: 2rem; }
       .hero-btns { flex-direction: column; }
-      .hero-btns a { justify-content: center; }
+      .hero-btns a { width: 100%; justify-content: center; }
       .kontakt-cards { grid-template-columns: 1fr; }
-      .ueber-stats { grid-template-columns: 1fr 1fr; }
+      .ueber-stats { grid-template-columns: repeat(3, 1fr); }
+      .stat-num { font-size: 1.25rem; }
+      .stat { padding: 0.9rem 0.9rem; }
+      section { padding: 3rem 1.25rem; }
+      #kontakt { padding: 3rem 1.25rem; }
+      #gebiet { padding: 2.5rem 1.25rem; }
     }
 
     @media (prefers-reduced-motion: reduce) {
       .reveal { opacity: 1; transform: none; transition: none; }
-      .btn-call:hover, .btn-wa:hover, .leistung:hover { transform: none; }
+      .btn-call:hover, .btn-wa:hover, .leistung:hover, .kontakt-card:hover { transform: none; }
     }
   </style>
 </head>
@@ -580,16 +611,16 @@
 
   <!-- Demo-Banner -->
   <div class="demo-banner">
-    Demo-Website &middot; Kein echter Betrieb &middot; Erstellt von <a href="https://fema-studio.de" target="_blank" rel="noopener noreferrer">FeMa Studio</a> &middot; Digitale Visitenkarte (599&nbsp;&euro;)
+    Fiktives Beispielprojekt &middot; Erstellt von <a href="https://fema-studio.de" target="_blank" rel="noopener noreferrer">FeMa Studio</a> &middot; Beispiel für das Paket Digitale Visitenkarte
   </div>
 
   <!-- Navigation -->
-  <nav>
+  <nav aria-label="Hauptnavigation">
     <a href="#" class="nav-logo">
       Malerbetrieb Berger
       <span>Malermeister &middot; Neuruppin</span>
     </a>
-    <a href="tel:+4933911234560" class="nav-cta">
+    <a href="tel:+493391123456" class="nav-cta">
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.77a16 16 0 0 0 6 6l.92-.92a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.73 16z"/></svg>
       Anrufen
     </a>
@@ -597,20 +628,19 @@
 
   <!-- Hero -->
   <div class="hero">
-    <div class="hero-dots" aria-hidden="true"></div>
-    <div class="hero-glow" aria-hidden="true"></div>
     <div class="hero-inner">
       <div class="hero-eyebrow">Malermeister aus Neuruppin</div>
       <h1>Frische Farbe.<br><em>Sauber gemacht.</em></h1>
-      <p class="hero-sub">Innenraumgestaltung, Fassadenarbeiten und Tapezieren — für Privat und Gewerbe. Zuverlässig, pünktlich und ohne Dreck.</p>
+      <p class="hero-sub">Innenraumgestaltung, Fassadenarbeiten und Tapezieren für Privatkunden und Gewerbe. Zuverlässig, pünktlich und sauber ausgeführt.</p>
+      <p class="hero-meta">Malerarbeiten in Neuruppin und Umgebung &middot; Saubere Ausführung &middot; Persönliche Absprachen</p>
       <div class="hero-btns">
-        <a href="tel:+4933911234560" class="btn-call">
+        <a href="tel:+493391123456" class="btn-call">
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.77a16 16 0 0 0 6 6l.92-.92a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.73 16z"/></svg>
           Jetzt anrufen
         </a>
-        <a href="https://wa.me/4933911234560" class="btn-wa" target="_blank" rel="noopener noreferrer">
+        <a href="https://wa.me/493391123456" class="btn-wa" target="_blank" rel="noopener noreferrer">
           <svg width="15" height="15" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.115.549 4.099 1.508 5.832L.057 23.868c-.054.209.005.43.158.578A.75.75 0 0 0 .75 24c.064 0 .129-.008.192-.025l6.186-1.618A11.943 11.943 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.72 9.72 0 0 1-5.058-1.415l-.363-.217-3.762.985.998-3.655-.236-.374A9.699 9.699 0 0 1 2.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z"/></svg>
-          WhatsApp
+          WhatsApp schreiben
         </a>
       </div>
     </div>
@@ -631,7 +661,7 @@
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
           </div>
           <h3>Innenraumgestaltung</h3>
-          <p>Wände und Decken frisch gestrichen. Sauber abgeklebt, ordentlich ausgeführt und pünktlich fertig.</p>
+          <p>Wände und Decken werden sauber vorbereitet und gestrichen. Passend zu Ihrem Zuhause, Büro oder Geschäftsraum.</p>
         </div>
 
         <div class="leistung reveal">
@@ -639,7 +669,7 @@
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
           </div>
           <h3>Fassade &amp; Außenanstrich</h3>
-          <p>Fassadenanstrich und Außenwände. Witterungsbeständig und langlebig verarbeitet.</p>
+          <p>Frische Farbe für Fassaden, Türen und Außenbereiche. Wetterfest, ordentlich vorbereitet und sauber ausgeführt.</p>
         </div>
 
         <div class="leistung reveal">
@@ -647,7 +677,7 @@
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
           </div>
           <h3>Tapezierarbeiten</h3>
-          <p>Tapeten abnehmen, vorbereiten und neue Tapeten passgenau verarbeiten — auch bei schwierigen Untergründen.</p>
+          <p>Tapeten entfernen, Untergründe vorbereiten und neue Tapeten sauber verarbeiten. Auch bei schwierigen Untergründen.</p>
         </div>
 
         <div class="leistung reveal">
@@ -655,7 +685,7 @@
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M2 12h3M19 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12"/></svg>
           </div>
           <h3>Lackierarbeiten</h3>
-          <p>Türen, Fensterrahmen und Heizkörper lackieren. Gleichmäßig und ohne Läufer.</p>
+          <p>Lackierungen für Türen, Rahmen, Heizkörper und weitere Oberflächen. Sauber, gleichmäßig und langlebig.</p>
         </div>
 
         <div class="leistung reveal">
@@ -663,7 +693,7 @@
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
           </div>
           <h3>Renovierungsarbeiten</h3>
-          <p>Spachtelarbeiten, kleine Reparaturen und Untergrundvorbereitung vor dem Streichen.</p>
+          <p>Kleine Renovierungen und Ausbesserungen nach Absprache. Ideal vor Einzug, Auszug oder Modernisierung.</p>
         </div>
 
       </div>
@@ -681,7 +711,7 @@
         <div class="reveal">
           <div class="eyebrow">Über mich</div>
           <h2 class="sec-title">Klaus Berger,<br>Malermeister</h2>
-          <p class="ueber-text">Ich bin seit über 15 Jahren selbstständiger Malermeister in Neuruppin und Umgebung. Meine Kunden schätzen die saubere Arbeitsweise, die klare Kommunikation und dass ich meine Termine einhalte. Ich arbeite allein oder mit einem kleinen Team — je nach Umfang des Auftrags.</p>
+          <p class="ueber-text">Ich bin seit über 15 Jahren als Malermeister in Neuruppin und Umgebung tätig. Meine Kunden schätzen saubere Arbeit, klare Absprachen und zuverlässig eingehaltene Termine. Je nach Auftrag arbeite ich allein oder mit einem kleinen Team.</p>
           <div class="ueber-stats">
             <div class="stat">
               <div class="stat-num">15+</div>
@@ -690,6 +720,10 @@
             <div class="stat">
               <div class="stat-num">Meister</div>
               <div class="stat-label">Geprüft &amp; eingetragen</div>
+            </div>
+            <div class="stat">
+              <div class="stat-num">Vor&nbsp;Ort</div>
+              <div class="stat-label">Besichtigung möglich</div>
             </div>
           </div>
         </div>
@@ -703,7 +737,7 @@
       <div class="reveal">
         <div class="eyebrow">Einsatzgebiet</div>
         <h2 class="sec-title">In Neuruppin &amp; Umgebung</h2>
-        <p class="sec-sub">Ich fahre zu Ihnen — im Landkreis Ostprignitz-Ruppin und angrenzenden Gebieten. Kostenlose Besichtigung vor Ort möglich.</p>
+        <p class="sec-sub">Ich komme zu Ihnen nach Hause oder in Ihren Betrieb. Termine sind in Neuruppin, im Landkreis Ostprignitz-Ruppin und in angrenzenden Orten möglich.</p>
       </div>
       <div class="gebiet-row">
         <div class="gebiet-tags reveal">
@@ -726,11 +760,11 @@
       <div class="reveal">
         <div class="eyebrow">Kontakt</div>
         <h2 class="sec-title">Jetzt Kontakt aufnehmen</h2>
-        <p class="sec-sub">Ich melde mich in der Regel noch am selben Tag. Kostenlose Besichtigung vor Ort auf Wunsch.</p>
+        <p class="sec-sub">Rufen Sie einfach an oder schreiben Sie per WhatsApp. Ich melde mich zeitnah zurück und bespreche mit Ihnen, was gemacht werden soll.</p>
       </div>
       <div class="kontakt-cards">
 
-        <a href="tel:+4933911234560" class="kontakt-card reveal">
+        <a href="tel:+493391123456" class="kontakt-card reveal">
           <div class="kc-icon">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.77a16 16 0 0 0 6 6l.92-.92a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.73 16z"/></svg>
           </div>
@@ -738,7 +772,7 @@
           <div class="kc-value">03391 / 123 456</div>
         </a>
 
-        <a href="https://wa.me/4933911234560" class="kontakt-card reveal" target="_blank" rel="noopener noreferrer">
+        <a href="https://wa.me/493391123456" class="kontakt-card reveal" target="_blank" rel="noopener noreferrer">
           <div class="kc-icon">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.115.549 4.099 1.508 5.832L.057 23.868c-.054.209.005.43.158.578A.75.75 0 0 0 .75 24c.064 0 .129-.008.192-.025l6.186-1.618A11.943 11.943 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.72 9.72 0 0 1-5.058-1.415l-.363-.217-3.762.985.998-3.655-.236-.374A9.699 9.699 0 0 1 2.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z"/></svg>
           </div>
@@ -762,15 +796,15 @@
   <footer>
     <div>
       Malerbetrieb Berger &middot; Musterstra&szlig;e 12 &middot; 16816 Neuruppin<br>
-      <a href="#">Impressum</a> &nbsp;&middot;&nbsp; <a href="#">Datenschutz</a>
+      <span class="footer-link-disabled" title="Nicht verfügbar – fiktives Beispielprojekt">Impressum</span> &nbsp;&middot;&nbsp; <span class="footer-link-disabled" title="Nicht verfügbar – fiktives Beispielprojekt">Datenschutz</span>
     </div>
     <div class="footer-demo">
-      Demo-Website &middot; Erstellt von FeMa Studio &middot; fema-studio.de
+      Fiktives Beispielprojekt &middot; Erstellt von <a href="https://fema-studio.de" target="_blank" rel="noopener noreferrer">FeMa Studio</a> &middot; fema-studio.de
     </div>
   </footer>
 
   <!-- WhatsApp Float -->
-  <a href="https://wa.me/4933911234560" class="wa-float" target="_blank" rel="noopener noreferrer" aria-label="Auf WhatsApp schreiben">
+  <a href="https://wa.me/493391123456" class="wa-float" target="_blank" rel="noopener noreferrer" aria-label="Auf WhatsApp schreiben">
     <svg width="26" height="26" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.115.549 4.099 1.508 5.832L.057 23.868c-.054.209.005.43.158.578A.75.75 0 0 0 .75 24c.064 0 .129-.008.192-.025l6.186-1.618A11.943 11.943 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.72 9.72 0 0 1-5.058-1.415l-.363-.217-3.762.985.998-3.655-.236-.374A9.699 9.699 0 0 1 2.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z"/></svg>
   </a>
 
