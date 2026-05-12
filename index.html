@@ -558,105 +558,159 @@
     @media (max-width: 760px) { .demo-block { grid-template-columns: 1fr; } }
 
     .demo-visual-col {
-      background: linear-gradient(145deg, #090916, #0d0d22);
-      padding: 2.25rem 2rem;
+      background: linear-gradient(145deg, #07071a, #0c0c24);
+      padding: 1.75rem 1.75rem;
       display: flex;
       align-items: center;
       justify-content: center;
       position: relative;
-      min-height: 360px;
+      min-height: 440px;
+      text-decoration: none;
+      cursor: pointer;
     }
     .demo-visual-col::before {
       content: '';
       position: absolute; inset: 0;
-      background: radial-gradient(ellipse 65% 55% at 50% 50%, rgba(99,102,241,0.09), transparent);
+      background: radial-gradient(ellipse 60% 50% at 50% 50%, rgba(99,102,241,0.08), transparent);
     }
 
     .browser-mockup-demo {
       width: 100%; position: relative; z-index: 1;
       background: #f8f5f1; border-radius: 8px; overflow: hidden;
-      border: 1px solid rgba(255,255,255,0.09);
-      box-shadow: 0 22px 60px rgba(0,0,0,0.55);
+      border: 1px solid rgba(255,255,255,0.1);
+      box-shadow: 0 24px 70px rgba(0,0,0,0.65);
     }
     .browser-bar-demo {
-      background: #e0dbd4; padding: 0.52rem 0.75rem;
-      display: flex; align-items: center; gap: 0.5rem;
+      background: #dedad3; padding: 0.48rem 0.7rem;
+      display: flex; align-items: center; gap: 0.45rem;
       border-bottom: 1px solid rgba(0,0,0,0.1);
     }
     .browser-url-demo {
-      flex: 1; background: rgba(255,255,255,0.7); border-radius: 3px;
-      padding: 0.17rem 0.55rem; font-size: 0.52rem; color: #777;
-      margin-left: 0.4rem; font-family: monospace; letter-spacing: 0;
+      flex: 1; background: rgba(255,255,255,0.75); border-radius: 3px;
+      padding: 0.16rem 0.5rem; font-size: 0.5rem; color: #666;
+      margin-left: 0.35rem; font-family: monospace; letter-spacing: 0;
     }
 
+    /* ── SIMULIERTE NAV ── */
+    .dp-nav {
+      background: #f3f0ec;
+      padding: 0.3rem 0.75rem;
+      display: flex; align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(0,0,0,0.07);
+    }
+    .dp-nav-brand { font-size: 0.44rem; font-weight: 700; color: #1e2e45; line-height: 1.25; }
+    .dp-nav-brand small {
+      display: block; font-size: 0.3rem; color: #999;
+      text-transform: uppercase; letter-spacing: 0.08em; font-weight: 500;
+    }
+    .dp-nav-btns { display: flex; gap: 0.18rem; }
+    .dp-nav-btn {
+      font-size: 0.3rem; padding: 0.13rem 0.38rem;
+      border-radius: 3px; font-weight: 700;
+    }
+    .dp-nav-btn-wa { background: #25d366; color: #fff; }
+    .dp-nav-btn-call { background: #1e2e45; color: #fff; }
+
+    /* ── HERO ── */
     .dp-hero-sim {
-      padding: 0.95rem 1rem 0.85rem;
-      background: #1e2e45;
-      background-image: linear-gradient(to right, rgba(14,25,42,0.96) 0%, rgba(14,25,42,0.70) 100%);
+      padding: 0.9rem 0.85rem 0.85rem;
+      background: #1a2a40;
+      background-image:
+        linear-gradient(to right, rgba(14,22,36,0.97) 0%, rgba(14,22,36,0.80) 52%, rgba(14,22,36,0.32) 100%),
+        linear-gradient(160deg, #243550 0%, #1a2a40 40%, #2e4060 100%);
+      position: relative; overflow: hidden;
+    }
+    .dp-hero-sim::after {
+      content: '';
+      position: absolute; top: 0; right: 0;
+      width: 38%; height: 100%;
+      background: linear-gradient(to right, transparent 0%, rgba(160,140,110,0.14) 100%);
+      pointer-events: none;
     }
     .dp-eyebrow-sim {
-      font-size: 0.4rem; letter-spacing: 0.14em; text-transform: uppercase;
-      color: rgba(240,192,96,0.75); margin-bottom: 0.45rem; font-weight: 700;
+      display: flex; align-items: center; gap: 0.28rem;
+      font-size: 0.36rem; letter-spacing: 0.13em; text-transform: uppercase;
+      color: rgba(240,192,96,0.9); margin-bottom: 0.4rem; font-weight: 700;
+    }
+    .dp-eyebrow-sim::before {
+      content: ''; width: 0.75rem; height: 1.5px;
+      background: rgba(240,192,96,0.9); border-radius: 1px; flex-shrink: 0;
     }
     .dp-h1-sim {
-      font-size: 0.82rem; font-weight: 700; color: #fff;
-      line-height: 1.22; margin-bottom: 0.5rem;
+      font-size: 0.9rem; font-weight: 700; color: #fff;
+      line-height: 1.12; margin-bottom: 0.38rem;
+      font-family: Georgia, 'Times New Roman', serif;
+      position: relative; z-index: 1;
     }
     .dp-h1-sim em { color: #f0c060; font-style: italic; }
     .dp-sub-sim {
-      font-size: 0.38rem; color: rgba(255,255,255,0.58);
-      line-height: 1.55; margin-bottom: 0.65rem; max-width: 130px;
+      font-size: 0.36rem; color: rgba(255,255,255,0.62);
+      line-height: 1.58; margin-bottom: 0.45rem; max-width: 108px;
+      position: relative; z-index: 1;
     }
-    .dp-btns-sim { display: flex; gap: 0.28rem; }
+    .dp-meta-sim {
+      font-size: 0.28rem; color: rgba(255,255,255,0.28);
+      margin-bottom: 0.5rem; letter-spacing: 0.03em;
+    }
+    .dp-btns-sim { display: flex; gap: 0.22rem; position: relative; z-index: 1; }
     .dp-btn-sim {
-      font-size: 0.36rem; padding: 0.25rem 0.55rem;
+      font-size: 0.32rem; padding: 0.22rem 0.5rem;
       border-radius: 3px; font-weight: 700;
+      display: flex; align-items: center; gap: 0.12rem;
     }
+    .dp-btn-icon { width: 0.35rem; height: 0.35rem; opacity: 0.75; }
     .dp-btn-call-sim { background: #fff; color: #1e2e45; }
     .dp-btn-wa-sim { background: #25d366; color: #fff; }
 
+    /* ── TRUST STRIP ── */
     .dp-trust-sim {
-      background: #fff;
-      padding: 0.45rem 1rem;
-      display: flex; gap: 0.5rem;
-      border-bottom: 1px solid rgba(0,0,0,0.06);
+      background: #fff; padding: 0.38rem 0.85rem;
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 0.3rem; border-bottom: 1px solid rgba(0,0,0,0.06);
     }
     .dp-trust-item {
-      flex: 1; display: flex; align-items: center;
-      gap: 0.22rem;
+      display: flex; align-items: center; gap: 0.2rem;
     }
-    .dp-trust-dot {
-      width: 0.32rem; height: 0.32rem;
-      background: rgba(192,122,10,0.5); border-radius: 50%; flex-shrink: 0;
+    .dp-trust-icon {
+      width: 0.72rem; height: 0.72rem;
+      background: rgba(192,122,10,0.14); border-radius: 2px; flex-shrink: 0;
     }
-    .dp-trust-line {
-      height: 0.22rem; background: rgba(0,0,0,0.1);
-      border-radius: 2px; flex: 1;
-    }
+    .dp-trust-text { display: flex; flex-direction: column; gap: 0.1rem; flex: 1; }
+    .dp-trust-label { height: 0.21rem; background: rgba(30,46,69,0.55); border-radius: 1px; }
+    .dp-trust-sublabel { height: 0.16rem; background: rgba(0,0,0,0.1); border-radius: 1px; width: 75%; }
 
+    /* ── LEISTUNGEN ── */
     .dp-body-sim {
-      background: #f8f5f1; padding: 0.65rem 1rem 0.7rem;
-      display: flex; gap: 0.4rem;
+      background: #f8f5f1; padding: 0.55rem 0.85rem 0.65rem;
     }
+    .dp-section-eyebrow {
+      height: 0.18rem; background: rgba(192,122,10,0.45); border-radius: 1px;
+      width: 20%; margin-bottom: 0.22rem;
+    }
+    .dp-section-title {
+      height: 0.28rem; background: rgba(30,46,69,0.7); border-radius: 2px;
+      width: 48%; margin-bottom: 0.45rem;
+    }
+    .dp-cards-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.3rem; }
     .dp-card-sim {
-      flex: 1; background: #fff; border: 1px solid rgba(0,0,0,0.07);
-      border-radius: 4px; padding: 0.5rem 0.5rem;
+      background: #fff; border: 1px solid rgba(0,0,0,0.07);
+      border-radius: 4px; padding: 0.44rem 0.44rem;
     }
     .dp-card-icon {
       width: 0.65rem; height: 0.65rem;
-      background: rgba(192,122,10,0.18); border-radius: 2px;
-      margin-bottom: 0.28rem;
+      background: rgba(192,122,10,0.14); border-radius: 2px; margin-bottom: 0.25rem;
     }
-    .dp-card-bar {
-      height: 0.25rem; background: rgba(30,46,69,0.55);
-      border-radius: 2px; margin-bottom: 0.2rem;
+    .dp-card-title {
+      height: 0.22rem; background: rgba(30,46,69,0.62);
+      border-radius: 1.5px; margin-bottom: 0.17rem; width: 82%;
     }
     .dp-card-line {
-      height: 0.17rem; background: rgba(0,0,0,0.1);
-      border-radius: 2px; margin-bottom: 0.15rem;
+      height: 0.15rem; background: rgba(0,0,0,0.1);
+      border-radius: 1.5px; margin-bottom: 0.12rem;
     }
-    .dp-card-line.s { width: 65%; }
-    .dp-card-line.xs { width: 45%; }
+    .dp-card-line.s { width: 70%; }
+    .dp-card-line.xs { width: 52%; }
 
     .demo-info-col {
       padding: 2.75rem 2.25rem;
@@ -1869,8 +1923,8 @@
       -->
 
       <div class="demo-block reveal">
-        <!-- Linke Spalte: Browser-Mockup -->
-        <div class="demo-visual-col">
+        <!-- Linke Spalte: Browser-Mockup (klickbar) -->
+        <a href="/demo-visitenkarte" target="_blank" rel="noopener noreferrer" class="demo-visual-col" aria-label="Demo-Seite öffnen">
           <div class="browser-mockup-demo">
             <div class="browser-bar-demo">
               <div class="browser-dot"></div>
@@ -1878,43 +1932,83 @@
               <div class="browser-dot"></div>
               <div class="browser-url-demo">fema-studio.de/demo-visitenkarte</div>
             </div>
-            <!-- Simulierte Vorschau der Demo-Seite -->
+            <!-- Simulierte Vorschau: Malerbetrieb Berger Demo -->
+            <!-- Nav -->
+            <div class="dp-nav">
+              <div class="dp-nav-brand">
+                Malerbetrieb Berger
+                <small>Malermeister · Neuruppin</small>
+              </div>
+              <div class="dp-nav-btns">
+                <div class="dp-nav-btn dp-nav-btn-wa">Foto senden</div>
+                <div class="dp-nav-btn dp-nav-btn-call">Jetzt anrufen</div>
+              </div>
+            </div>
+            <!-- Hero -->
             <div class="dp-hero-sim">
               <div class="dp-eyebrow-sim">Malermeister in Neuruppin</div>
               <div class="dp-h1-sim">Frische Farbe.<br><em>Ordentlich gemacht.</em></div>
-              <div class="dp-sub-sim">Malerarbeiten für Wohnungen, Treppenhäuser und Büros. Möbel werden sorgfältig abgedeckt.</div>
+              <div class="dp-sub-sim">Malerarbeiten für Wohnungen, Treppenhäuser, Büros und kleinere Gewerbeflächen.</div>
+              <div class="dp-meta-sim">Neuruppin · Rheinsberg · Wittstock · Oranienburg</div>
               <div class="dp-btns-sim">
                 <div class="dp-btn-sim dp-btn-call-sim">Jetzt anrufen</div>
                 <div class="dp-btn-sim dp-btn-wa-sim">Foto per WhatsApp</div>
               </div>
             </div>
+            <!-- Trust Strip -->
             <div class="dp-trust-sim">
-              <div class="dp-trust-item"><div class="dp-trust-dot"></div><div class="dp-trust-line"></div></div>
-              <div class="dp-trust-item"><div class="dp-trust-dot"></div><div class="dp-trust-line"></div></div>
-              <div class="dp-trust-item"><div class="dp-trust-dot"></div><div class="dp-trust-line"></div></div>
+              <div class="dp-trust-item">
+                <div class="dp-trust-icon"></div>
+                <div class="dp-trust-text">
+                  <div class="dp-trust-label"></div>
+                  <div class="dp-trust-sublabel"></div>
+                </div>
+              </div>
+              <div class="dp-trust-item">
+                <div class="dp-trust-icon"></div>
+                <div class="dp-trust-text">
+                  <div class="dp-trust-label"></div>
+                  <div class="dp-trust-sublabel"></div>
+                </div>
+              </div>
+              <div class="dp-trust-item">
+                <div class="dp-trust-icon"></div>
+                <div class="dp-trust-text">
+                  <div class="dp-trust-label"></div>
+                  <div class="dp-trust-sublabel"></div>
+                </div>
+              </div>
             </div>
+            <!-- Leistungen -->
             <div class="dp-body-sim">
-              <div class="dp-card-sim">
-                <div class="dp-card-icon"></div>
-                <div class="dp-card-bar"></div>
-                <div class="dp-card-line"></div>
-                <div class="dp-card-line s"></div>
-              </div>
-              <div class="dp-card-sim">
-                <div class="dp-card-icon"></div>
-                <div class="dp-card-bar"></div>
-                <div class="dp-card-line"></div>
-                <div class="dp-card-line s"></div>
-              </div>
-              <div class="dp-card-sim">
-                <div class="dp-card-icon"></div>
-                <div class="dp-card-bar"></div>
-                <div class="dp-card-line"></div>
-                <div class="dp-card-line xs"></div>
+              <div class="dp-section-eyebrow"></div>
+              <div class="dp-section-title"></div>
+              <div class="dp-cards-row">
+                <div class="dp-card-sim">
+                  <div class="dp-card-icon"></div>
+                  <div class="dp-card-title"></div>
+                  <div class="dp-card-line"></div>
+                  <div class="dp-card-line s"></div>
+                  <div class="dp-card-line xs"></div>
+                </div>
+                <div class="dp-card-sim">
+                  <div class="dp-card-icon"></div>
+                  <div class="dp-card-title"></div>
+                  <div class="dp-card-line"></div>
+                  <div class="dp-card-line s"></div>
+                  <div class="dp-card-line xs"></div>
+                </div>
+                <div class="dp-card-sim">
+                  <div class="dp-card-icon"></div>
+                  <div class="dp-card-title"></div>
+                  <div class="dp-card-line"></div>
+                  <div class="dp-card-line s"></div>
+                  <div class="dp-card-line xs"></div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
+        </a>
 
         <!-- Rechte Spalte: Beschreibung -->
         <div class="demo-info-col">
