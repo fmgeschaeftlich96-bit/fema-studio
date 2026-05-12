@@ -232,6 +232,7 @@ ul { list-style: none; }
 }
 .nav-mobile a:hover { background: var(--karte); }
 .nav-mobile a.aktiv { color: var(--akzent); background: var(--akzent-hell); font-weight: 600; }
+.nav-mobile .btn-primaer { color: #fff; }
 .nav-mobile .btn {
   width: 100%;
   justify-content: center;
