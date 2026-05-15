@@ -767,9 +767,10 @@ footer {
   .claims-reihe { grid-template-columns: 1fr; }
   .karte-grid { grid-template-columns: 1fr 1fr; }
   .empfehlung { grid-template-columns: 1fr; padding: 2.5rem; }
-  .empfehlung-bild { display: none; }
+  .empfehlung-bild { aspect-ratio: 16/9; }
   .ueber-grid { grid-template-columns: 1fr; gap: 2rem; }
-  .ueber-bild { aspect-ratio: 3/2; }
+  .ueber-bild { aspect-ratio: 4/3; }
+  .ueber-bild img { object-position: top center; }
   .zeiten-layout { grid-template-columns: 1fr; gap: 2.5rem; }
   .kontakt-layout { grid-template-columns: 1fr; gap: 2.5rem; }
 }
