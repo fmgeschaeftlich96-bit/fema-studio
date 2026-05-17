@@ -762,8 +762,6 @@ footer {
 
 /* ── RESPONSIVE ──────────────────────────────────────── */
 @media (max-width: 900px) {
-  .hero-cafe-inner { grid-template-columns: 1fr; }
-  .hero-cafe-bild { display: none; }
   .claims-reihe { grid-template-columns: 1fr; }
   .karte-grid { grid-template-columns: 1fr 1fr; }
   .empfehlung { grid-template-columns: 1fr; padding: 2.5rem; }
@@ -773,6 +771,14 @@ footer {
   .ueber-bild img { object-position: top center; }
   .zeiten-layout { grid-template-columns: 1fr; gap: 2.5rem; }
   .kontakt-layout { grid-template-columns: 1fr; gap: 2.5rem; }
+}
+@media (max-width: 900px) and (min-width: 701px) {
+  .hero-cafe-inner { grid-template-columns: 1fr 1fr; gap: 2.5rem; }
+  .hero-cafe-bild { aspect-ratio: 1; }
+}
+@media (max-width: 700px) {
+  .hero-cafe-inner { grid-template-columns: 1fr; }
+  .hero-cafe-bild { display: none; }
 }
 @media (max-width: 768px) {
   .section { padding: 3rem 0; }
