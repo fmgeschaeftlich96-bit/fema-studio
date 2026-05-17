@@ -797,7 +797,7 @@ footer {
   .hero-sub { font-size: 0.9rem; margin-bottom: 1.25rem; }
   .hero-buttons { flex-direction: column; gap: 0.5rem; margin-bottom: 1.25rem; }
   .hero-buttons .btn { justify-content: center; }
-  .hero-zeiten-box { padding: 0.85rem 1rem; }
+  .hero-zeiten-box { padding: 0.85rem 1rem; display: flex; flex-direction: column; width: 100%; }
   .hero-zeiten-reihe { font-size: 0.8rem; gap: 0.5rem; }
   .hero-zeiten-reihe .tag { min-width: 80px; }
 
