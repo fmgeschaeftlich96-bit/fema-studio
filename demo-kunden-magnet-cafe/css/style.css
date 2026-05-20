@@ -242,28 +242,33 @@ ul { list-style: none; }
 
 /* ── HERO STARTSEITE ─────────────────────────────────── */
 .hero-cafe {
-  padding: 4.5rem 0 4rem;
-  background: var(--akzent-hell);
+  padding: 5rem 0 4.5rem;
+  background:
+    linear-gradient(
+      105deg,
+      rgba(253,246,238,0.97) 0%,
+      rgba(253,246,238,0.92) 36%,
+      rgba(253,246,238,0.28) 62%,
+      rgba(253,246,238,0.04) 82%
+    ),
+    url('../bilder/cafelisbethhero.jpg') center / cover no-repeat;
   position: relative;
   overflow: hidden;
+  min-height: 580px;
+  display: flex;
+  align-items: center;
 }
 .hero-cafe::before {
-  content: '';
-  position: absolute;
-  top: -120px; right: -120px;
-  width: 480px; height: 480px;
-  border-radius: 50%;
-  background: color-mix(in srgb, var(--akzent) 5%, transparent);
-  pointer-events: none;
+  display: none;
 }
 .hero-cafe-inner {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4rem;
-  align-items: center;
   max-width: 1100px;
   margin: 0 auto;
   padding: 0 1.5rem;
+  width: 100%;
+}
+.hero-cafe-inner > div:first-child {
+  max-width: 560px;
 }
 .hero-cafe-label {
   display: inline-flex;
@@ -336,18 +341,7 @@ ul { list-style: none; }
 .hero-zeiten-reihe .zeit { color: var(--text); font-weight: 600; }
 .hero-zeiten-sep { border: none; border-top: 1px dashed var(--rahmen); margin: 0.2rem 0; }
 
-/* Bild-Seite */
-.hero-cafe-bild {
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  aspect-ratio: 4/5;
-  background: var(--karte);
-  border: 1px solid var(--rahmen);
-  box-shadow: var(--schatten-lg);
-  position: relative;
-  z-index: 1;
-}
-.hero-cafe-bild img { width: 100%; height: 100%; object-fit: cover; }
+.hero-cafe-bild { display: none; }
 .bild-platzhalter {
   width: 100%; height: 100%;
   display: flex; flex-direction: column;
@@ -772,17 +766,21 @@ footer {
   .zeiten-layout { grid-template-columns: 1fr; gap: 2.5rem; }
   .kontakt-layout { grid-template-columns: 1fr; gap: 2.5rem; }
 }
-@media (max-width: 900px) and (min-width: 701px) {
-  .hero-cafe-inner { grid-template-columns: 1fr 1fr; gap: 2.5rem; }
-  .hero-cafe-bild { aspect-ratio: 1; }
-}
-@media (max-width: 700px) {
-  .hero-cafe-inner { grid-template-columns: 1fr; }
-  .hero-cafe-bild { display: none; }
-}
 @media (max-width: 768px) {
   .section { padding: 3rem 0; }
-  .hero-cafe { padding: 2.5rem 0 2rem; }
+  .hero-cafe {
+    padding: 2.5rem 0 2rem;
+    min-height: 0;
+    background:
+      linear-gradient(
+        to bottom,
+        rgba(253,246,238,0.83) 0%,
+        rgba(253,246,238,0.75) 100%
+      ),
+      url('../bilder/cafelisbethhero.jpg') center 30% / cover no-repeat;
+    align-items: flex-start;
+  }
+  .hero-cafe-inner > div:first-child { max-width: 100%; }
   .nav-links, .nav-zeiten { display: none; }
   .nav-hamburger { display: flex; }
   .feld-gruppe { grid-template-columns: 1fr; }
