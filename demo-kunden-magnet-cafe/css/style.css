@@ -771,15 +771,31 @@ footer {
   .hero-cafe {
     padding: 2.5rem 0 2rem;
     min-height: 0;
-    background:
-      linear-gradient(
-        to bottom,
-        rgba(253,246,238,0.83) 0%,
-        rgba(253,246,238,0.75) 100%
-      ),
-      url('../bilder/cafelisbethhero.jpg') center 30% / cover no-repeat;
+    background: none;
     align-items: flex-start;
   }
+  .hero-cafe::before {
+    display: block;
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url('../bilder/cafelisbethhero.jpg') center 30% / cover no-repeat;
+    filter: contrast(1.08) saturate(1.35) brightness(0.87) sepia(0.07);
+    z-index: 0;
+  }
+  .hero-cafe::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(253,246,238,0.68) 0%,
+      rgba(253,246,238,0.54) 55%,
+      rgba(253,246,238,0.38) 100%
+    );
+    z-index: 1;
+  }
+  .hero-cafe-inner { position: relative; z-index: 2; }
   .hero-cafe-inner > div:first-child { max-width: 100%; }
   .nav-links, .nav-zeiten { display: none; }
   .nav-hamburger { display: flex; }
