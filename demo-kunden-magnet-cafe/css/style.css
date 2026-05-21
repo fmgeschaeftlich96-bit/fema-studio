@@ -805,7 +805,7 @@ footer {
     border-radius: 14px;
     border: 1px solid rgba(253,246,238,0.18);
   }
-  .hero-cafe .hero-sub { color: var(--text); }
+  .hero-cafe .hero-sub { color: #3a2418; }
   .nav-links, .nav-zeiten { display: none; }
   .nav-hamburger { display: flex; }
   .feld-gruppe { grid-template-columns: 1fr; }
