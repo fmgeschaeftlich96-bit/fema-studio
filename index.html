@@ -556,7 +556,11 @@
     }
     .demo-block:hover { border-color: rgba(99,102,241,0.22); }
     .demo-block--mb { margin-bottom: 4rem; }
-    @media (max-width: 760px) { .demo-block { grid-template-columns: 1fr; } }
+    @media (max-width: 760px) {
+      .demo-block { grid-template-columns: 1fr; }
+      .demo-visual-col { min-height: 0; padding: 1rem 1.25rem 0.75rem; }
+      .demo-block--mb { margin-bottom: 2.5rem; }
+    }
 
     .demo-visual-col {
       background: linear-gradient(145deg, #07071a, #0c0c24);
@@ -657,6 +661,7 @@
       .demo-info-col { padding: 1.75rem 1.5rem; }
       .demo-title { font-size: 1.25rem; }
       .demo-btn-primary { width: 100%; justify-content: center; }
+      .demo-visual-col { padding: 0.75rem 1rem 0.5rem; }
     }
 
     /* KONTAKT */
@@ -2087,14 +2092,17 @@
               <div class="browser-dot"></div>
               <div class="browser-url-demo">fema-studio.de/demo-visitenkarte</div>
             </div>
-            <img
-              src="demo-visitenkarte-screenshot.jpg"
-              alt="Demo: Digitale Visitenkarte – Malerbetrieb Berger"
-              class="demo-screenshot-img"
-              loading="lazy"
-              width="800"
-              height="600"
-            />
+            <picture>
+              <source srcset="demo-visitenkarte-screenshot.webp" type="image/webp">
+              <img
+                src="demo-visitenkarte-screenshot.jpg"
+                alt="Demo: Digitale Visitenkarte – Malerbetrieb Berger"
+                class="demo-screenshot-img"
+                loading="lazy"
+                width="800"
+                height="600"
+              />
+            </picture>
           </div>
         </a>
 
