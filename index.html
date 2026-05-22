@@ -559,7 +559,6 @@
     .demo-block--mb { margin-bottom: 4rem; }
     @media (max-width: 760px) {
       .demo-block { grid-template-columns: 1fr; min-height: 0; }
-      .demo-visual-col { min-height: 0; padding: 1rem 1.25rem 0.75rem; }
       .demo-block--mb { margin-bottom: 2.5rem; }
     }
 
@@ -661,11 +660,16 @@
       transition: color 0.2s;
     }
     .demo-btn-secondary:hover { color: var(--text); }
+    @media (max-width: 760px) {
+      .demo-visual-col { min-height: 0; padding: 0.85rem 1.1rem 0.6rem; }
+      .demo-info-col { padding: 1.5rem 1.25rem; gap: 0.85rem; justify-content: flex-start; }
+      .demo-benefits { display: none; }
+    }
     @media (max-width: 480px) {
-      .demo-info-col { padding: 1.75rem 1.5rem; }
-      .demo-title { font-size: 1.25rem; }
+      .demo-visual-col { padding: 0.7rem 0.9rem 0.5rem; }
+      .demo-info-col { padding: 1.25rem 1.1rem; gap: 0.75rem; }
+      .demo-title { font-size: 1.2rem; }
       .demo-btn-primary { width: 100%; justify-content: center; }
-      .demo-visual-col { padding: 0.75rem 1rem 0.5rem; }
     }
 
     /* KONTAKT */
@@ -2051,7 +2055,7 @@
         <div class="demo-info-col">
           <span class="demo-paket-badge">Paket: Marktführer &middot; 1.799&nbsp;€</span>
           <h3 class="demo-title">Marktführer-Website für einen ambulanten Pflegedienst</h3>
-          <p class="demo-desc">Umfangreiche Demo-Website für Fontane Pflege, mit professioneller Startseite, Leistungsbereichen, Über-uns-Seite, Karrierebereich und klarer Anfrageführung. Seriöses Design, regionale Positionierung und vertrauensstarke Inhalte für einen Pflegedienst in Neuruppin &amp; Umgebung.</p>
+          <p class="demo-desc">Demo-Website für Fontane Pflege mit Startseite, Leistungsseiten, Über-uns-Seite, Karrierebereich und klarer Anfrageführung. Seriöses Design und vertrauensstarke Inhalte für einen ambulanten Pflegedienst in Neuruppin &amp; Umgebung.</p>
           <ul class="demo-benefits">
             <li>
               <span class="demo-check" aria-hidden="true">
