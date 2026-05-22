@@ -11,7 +11,7 @@
   <meta property="og:description" content="Malerarbeiten für Privatkunden und Gewerbe in Neuruppin. Sauber, termingerecht, mit fairer Einschätzung vor Ort." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://fema-studio.de/demo-visitenkarte" />
-  <link rel="preload" href="maler-hero-demo.jpg" as="image" media="(min-width: 781px)" />
+  <link rel="preload" href="maler-hero-demo.webp" as="image" type="image/webp" media="(min-width: 781px)" />
   <link rel="preload" href="maler-hero-demo-mobile.jpg" as="image" media="(max-width: 780px)" />
   <link rel="preconnect" href="https://fonts.bunny.net" />
   <link href="https://fonts.bunny.net/css?family=lora:400,400i,600,700&family=dm-sans:400,500,600&display=swap" rel="stylesheet" />
@@ -142,6 +142,12 @@
       background-image:
         linear-gradient(to right, rgba(14,25,42,0.92) 0%, rgba(14,25,42,0.62) 48%, rgba(14,25,42,0.14) 100%),
         url('maler-hero-demo.jpg');
+      background-image:
+        linear-gradient(to right, rgba(14,25,42,0.92) 0%, rgba(14,25,42,0.62) 48%, rgba(14,25,42,0.14) 100%),
+        -webkit-image-set(url('maler-hero-demo.webp') 1x, url('maler-hero-demo.jpg') 1x);
+      background-image:
+        linear-gradient(to right, rgba(14,25,42,0.92) 0%, rgba(14,25,42,0.62) 48%, rgba(14,25,42,0.14) 100%),
+        image-set(url('maler-hero-demo.webp') type('image/webp'), url('maler-hero-demo.jpg') type('image/jpeg'));
       background-size: cover;
       background-position: right 18%;
       background-repeat: no-repeat;
