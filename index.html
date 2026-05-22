@@ -553,11 +553,12 @@
       overflow: hidden;
       background: var(--card);
       transition: border-color 0.3s;
+      min-height: 600px;
     }
     .demo-block:hover { border-color: rgba(99,102,241,0.22); }
     .demo-block--mb { margin-bottom: 4rem; }
     @media (max-width: 760px) {
-      .demo-block { grid-template-columns: 1fr; }
+      .demo-block { grid-template-columns: 1fr; min-height: 0; }
       .demo-visual-col { min-height: 0; padding: 1rem 1.25rem 0.75rem; }
       .demo-block--mb { margin-bottom: 2.5rem; }
     }
@@ -598,6 +599,9 @@
 
     .demo-screenshot-img {
       width: 100%; height: auto; display: block;
+      aspect-ratio: 16/10;
+      object-fit: cover;
+      object-position: top;
     }
 
     .demo-info-col {
