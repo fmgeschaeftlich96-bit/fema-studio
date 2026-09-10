@@ -1710,7 +1710,7 @@
       </div>
       <div class="urgency-notice reveal">
         <span class="urgency-dot"></span>
-        Im Juli habe ich noch <strong>2 Plätze frei</strong>. Ab August geht's weiter.
+        <span id="urgency-text">Aktuell sind noch wenige Plätze frei. Schreiben Sie mir gern eine Anfrage.</span>
       </div>
 
       <div class="preise-anchor reveal">
@@ -2428,6 +2428,26 @@
         }
       });
     });
+  </script>
+
+  <script>
+    (function() {
+      const monate = ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'];
+      const jetzt = new Date();
+      const monat = jetzt.getMonth();
+      const naechsterMonat = (monat + 1) % 12;
+
+      const seed = jetzt.getFullYear() * 12 + monat;
+      const pseudoZufall = Math.abs(Math.sin(seed) * 10000);
+      const plaetze = 1 + Math.floor((pseudoZufall - Math.floor(pseudoZufall)) * 4);
+
+      const plaetzeText = plaetze === 1 ? 'noch <strong>1 Platz frei</strong>' : `noch <strong>${plaetze} Plätze frei</strong>`;
+
+      const el = document.getElementById('urgency-text');
+      if (el) {
+        el.innerHTML = `Im ${monate[monat]} habe ich ${plaetzeText}. Ab ${monate[naechsterMonat]} geht's weiter.`;
+      }
+    })();
   </script>
 
   <!-- Cloudflare Web Analytics -->
